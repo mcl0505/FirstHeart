@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="10dp"
+    android:id="@+id/llTop1"
+    android:background="@mipmap/user_bg"
+    android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:id="@+id/layout_left"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="80dp"
+            android:layout_height="80dp">
+
+            <com.opensource.svgaplayer.SVGAImageView
+                android:id="@+id/imgQuanZhu"
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+
+            <com.konglianyuyin.mx.view.RippleView
+                android:id="@+id/wave_zhu"
+                style="@style/wave_style"
+                />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/imgRoom"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/user_header"
+                app:riv_border_color="@color/font_89E0FB"
+                app:riv_border_width="1dip"
+                app:riv_corner_radius="180dip" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+                <ImageView
+                    android:id="@+id/img_txk_zhu"
+                    style="@style/txk_style"
+                    />
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp"></View>
+            </LinearLayout>
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/imgRoomVedio"
+                android:layout_width="17dp"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@id/imgRoom"
+                android:layout_alignRight="@id/imgRoom"
+                android:src="@drawable/selector_room_header_bimai" />
+
+            <com.konglianyuyin.mx.view.ShapeTextView
+                android:id="@+id/textLayout"
+                android:layout_width="30dp"
+                android:layout_height="14dp"
+                android:layout_alignBottom="@+id/imgRoom"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="离开"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:visibility="visible"
+                app:cornersRadius="50dp"
+                app:solidNormal="@color/font_4d000000" />
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/imgRoomGif"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="-5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:src="@mipmap/room_label_tingzhu" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_toRightOf="@id/layout_left"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="12dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="-5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text=""
+                android:maxWidth="50dp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="50dp"
+                    android:src="@mipmap/room_label_zhuchi" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="80dp"
+            android:layout_height="80dp">
+
+            <com.opensource.svgaplayer.SVGAImageView
+                android:id="@+id/imgQuan8"
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+
+            <com.konglianyuyin.mx.view.RippleView
+                android:id="@+id/wave_8"
+                style="@style/wave_style"
+                />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/img8"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/user_header"
+                app:riv_border_color="@color/font_89E0FB"
+                app:riv_border_width="1dip"
+                app:riv_corner_radius="180dip" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+                <ImageView
+                    android:id="@+id/img_txk_8"
+                    style="@style/txk_style"
+                    />
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp"></View>
+            </LinearLayout>
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/imgVedio8"
+                android:layout_width="17dp"
+                android:layout_height="20dp"
+                android:layout_alignRight="@+id/img8"
+                android:layout_alignBottom="@+id/img8"
+                android:src="@drawable/selector_room_header_bimai" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/textNum8"
+                android:layout_width="15dp"
+                android:layout_height="10dp"
+                android:layout_alignBottom="@+id/img8"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/selector_room_number"
+                android:gravity="center"
+                android:text="8"
+                android:textColor="@color/white"
+                android:textSize="7sp" />
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/imgGif8"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

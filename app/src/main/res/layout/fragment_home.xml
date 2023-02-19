@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainbg1"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        app:srlAccentColor="@color/font_eeeeee"
+        app:srlPrimaryColor="@color/mainbg1">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/coordinator_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/mainbg1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="40dp"
+                    android:orientation="vertical"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/tv_top_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="15dp"
+                            android:text="@string/app_name"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/home_myhome"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/my_home_icon" />
+
+                        <LinearLayout
+                            android:id="@+id/sousuo"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="60dp"
+                            android:layout_toLeftOf="@+id/home_myhome"
+                            android:layout_toRightOf="@+id/tv_top_title"
+                            android:background="@drawable/serch_bg">
+
+                            <ImageView
+                                android:layout_width="17dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="10dp"
+                                android:background="@drawable/search_icon" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/card_banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@color/mainbg"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp">
+
+                        <com.youth.banner.Banner
+                            android:id="@+id/banner"
+                            android:layout_width="match_parent"
+                            android:layout_height="88dp"
+                            android:background="@color/mainbg"
+                            app:delay_time="2000"
+                            app:indicator_drawable_selected="@drawable/shape_wehite_yuan"
+                            app:indicator_height="7dp"
+                            app:indicator_margin="5dp"
+                            app:indicator_width="7dp"
+                            app:scroll_time="600" />
+                    </android.support.v7.widget.CardView>
+
+                    <RelativeLayout
+                        android:id="@+id/llrank"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="13dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/shape_home_rank"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/img1"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="16dp"
+                            android:src="@mipmap/icon_home_jb" />
+
+                        <TextView
+                            android:id="@+id/tvJingbang"
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:paddingTop="3dp"
+                            android:textSize="18sp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:layout_width="75dp"
+                            android:layout_height="18dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_toRightOf="@id/img1"
+                            android:background="@mipmap/bg_home_jb" />
+
+
+                        <ImageView
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="11dp"
+
+                            android:src="@mipmap/icon_home_arrow" />
+
+                    </RelativeLayout>
+
+                    <com.flyco.tablayout.SlidingTabLayout
+                        android:id="@+id/tab_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_below="@id/llrank"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        app:tl_indicator_color="@color/app_bg"
+                        app:tl_indicator_corner_radius="1dp"
+                        app:tl_indicator_height="3dp"
+                        app:tl_indicator_margin_bottom="1dp"
+                        app:tl_indicator_width="18dp"
+                        app:tl_tab_space_equal="true"
+                        app:tl_textBold="NONE"
+                        app:tl_textSelectColor="@color/app_bg"
+                        app:tl_textSelectSize="16sp"
+                        app:tl_textUnselectColor="#333333"
+                        app:tl_textsize="13sp" />
+                </LinearLayout>
+
+            </android.support.design.widget.AppBarLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </android.support.design.widget.CoordinatorLayout>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</LinearLayout>

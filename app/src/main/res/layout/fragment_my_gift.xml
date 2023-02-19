@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#100D20">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        tools:context=".fragment.MyGiftFragment">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/no_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/no_lw"
+                android:drawablePadding="15dp"
+                android:gravity="center"
+                android:text="这里空空的~"
+                android:textColor="@color/font_999999"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <com.konglianyuyin.mx.view.MyGridView
+                android:id="@+id/gift_recyc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="4"
+                android:verticalSpacing="15dp" />
+        </FrameLayout>
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

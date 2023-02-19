@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="20dp"
+    android:orientation="horizontal"
+    tools:showIn="@layout/activity_admin_home_1">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp">
+
+                <com.opensource.svgaplayer.SVGAImageView
+                    android:id="@+id/imgQuan1"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:visibility="gone" />
+
+                <com.konglianyuyin.mx.view.RippleView
+                    android:id="@+id/wave_1"
+                    style="@style/wave_style" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/img1"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/shf_img2"
+                    app:riv_border_color="@color/font_89E0FB"
+                    app:riv_border_width="2dp"
+                    app:riv_corner_radius="180dip" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_txk_1"
+                        style="@style/txk_style" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="2dp"></View>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imgVedio1"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/selector_room_header_bimai"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textNum1"
+                    android:layout_width="15dp"
+                    android:layout_height="10dp"
+                    android:layout_alignBottom="@+id/img1"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/selector_room_number"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/white"
+                    android:textSize="7sp"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgGif1"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_alignBottom="@+id/img1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="0dp"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:id="@+id/meili1"
+                    android:layout_width="wrap_content"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:layout_height="14dp"
+                    android:background="@drawable/jianbian_meilizhi_7"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#ffffffff"
+                    android:textSize="11sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxEms="26"
+                android:maxLines="1"
+                android:text="1号麦"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_size_11" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp">
+
+                <com.opensource.svgaplayer.SVGAImageView
+                    android:id="@+id/imgQuan2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp" />
+
+                <com.konglianyuyin.mx.view.RippleView
+                    android:id="@+id/wave_2"
+                    style="@style/wave_style" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/img2"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/shf_img2"
+                    app:riv_border_color="@color/font_89E0FB"
+                    app:riv_border_width="2dp"
+                    app:riv_corner_radius="180dip" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_txk_2"
+                        style="@style/txk_style" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="2dp"></View>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imgVedio2"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/selector_room_header_bimai"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textNum2"
+                    android:layout_width="15dp"
+                    android:layout_height="10dp"
+                    android:layout_alignBottom="@+id/img2"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/selector_room_number"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="@color/white"
+                    android:textSize="7sp"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgGif2"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:id="@+id/meili2"
+                    android:layout_width="wrap_content"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:layout_height="14dp"
+                    android:background="@drawable/jianbian_meilizhi_7"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#ffffffff"
+                    android:textSize="11sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxEms="26"
+                android:maxLines="1"
+                android:text="2号麦"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_size_11" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp">
+
+                <com.opensource.svgaplayer.SVGAImageView
+                    android:id="@+id/imgQuan3"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp" />
+
+                <com.konglianyuyin.mx.view.RippleView
+                    android:id="@+id/wave_3"
+                    style="@style/wave_style" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/img3"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/shf_img2"
+                    app:riv_border_color="@color/font_89E0FB"
+                    app:riv_border_width="2dp"
+                    app:riv_corner_radius="180dip" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_txk_3"
+                        style="@style/txk_style" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="2dp"></View>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imgVedio3"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/selector_room_header_bimai"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textNum3"
+                    android:layout_width="15dp"
+                    android:layout_height="10dp"
+                    android:layout_alignBottom="@+id/img3"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/selector_room_number"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textColor="@color/white"
+                    android:textSize="7sp"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgGif3"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:id="@+id/meili3"
+                    android:layout_width="wrap_content"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:layout_height="14dp"
+                    android:background="@drawable/jianbian_meilizhi_7"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#ffffffff"
+                    android:textSize="11sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxEms="26"
+                android:maxLines="1"
+                android:text="3号麦"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_size_11" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp">
+
+                <com.opensource.svgaplayer.SVGAImageView
+                    android:id="@+id/imgQuan4"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp" />
+
+                <com.konglianyuyin.mx.view.RippleView
+                    android:id="@+id/wave_4"
+                    style="@style/wave_style" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/img4"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/shf_img2"
+                    app:riv_border_color="@color/font_89E0FB"
+                    app:riv_border_width="2dp"
+                    app:riv_corner_radius="180dip" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_txk_4"
+                        style="@style/txk_style" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="2dp"></View>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imgVedio4"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/selector_room_header_bimai"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textNum4"
+                    android:layout_width="15dp"
+                    android:layout_height="10dp"
+                    android:layout_alignBottom="@id/img4"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/selector_room_number"
+                    android:gravity="center"
+                    android:text="4"
+                    android:textColor="@color/white"
+                    android:textSize="7sp"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgGif4"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:id="@+id/meili4"
+                    android:layout_width="wrap_content"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:layout_height="14dp"
+                    android:background="@drawable/jianbian_meilizhi_7"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#ffffffff"
+                    android:textSize="11sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/text4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxEms="26"
+                android:maxLines="1"
+                android:text="4号麦"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_size_11" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

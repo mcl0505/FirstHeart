@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="380dp"
+    android:id="@+id/ll_main"
+    android:layout_gravity="center"
+    android:background="@mipmap/live_home_dia_bg1"
+    android:orientation="vertical"
+    android:paddingTop="19dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:lineSpacingExtra="18dp"
+            android:text="奖池"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_size_18" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:padding="@dimen/dp_10"
+            android:src="@mipmap/live_home_dia_close" />
+    </RelativeLayout>
+    <!--    <com.opensource.svgaplayer.SVGAImageView-->
+    <!--        android:id="@+id/svga"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="241dp"-->
+    <!--        android:background="@color/translant"-->
+    <!--        android:scaleType="center" />-->
+
+    <RelativeLayout
+        android:id="@+id/bj"
+        android:background="@mipmap/live_home_dia_bg2"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="@dimen/dp_10">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:padding="15dp" />
+    </RelativeLayout>
+
+    <!--android:layoutAnimation="@anim/layout_animation_fall_down"-->
+</LinearLayout>

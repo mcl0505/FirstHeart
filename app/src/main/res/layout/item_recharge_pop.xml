@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="106dp"
+    android:layout_height="75dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="18dp"
+    android:background="@drawable/shape_gray_line_coners_7">
+
+    <EditText
+        android:id="@+id/ed_input_price"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:textColorHint="@color/gray"
+        android:hint="请输入充值金额"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:textColor="@color/font_333333"
+        android:textStyle="bold"
+        android:inputType="number"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="12dp"
+        >
+
+        <ImageView
+            android:layout_width="21dp"
+            android:layout_height="18dp"
+            android:src="@mipmap/icon_yellow_diamond"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="60"
+            android:textColor="@color/app_bg_bottom"
+            android:textSize="20sp"
+            android:layout_marginLeft="6dp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="￥6"
+        android:textColor="@color/color_9d8cff"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_top"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+</android.support.constraint.ConstraintLayout>

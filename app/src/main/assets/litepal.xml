@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+
+    <dbname value="mini" />
+
+    <version value="4" />
+
+    <list>
+        <mapping class="com.konglianyuyin.mx.bean.LoginData" />
+        <mapping class="com.konglianyuyin.mx.bean.LocalMusicInfo" />
+
+    </list>
+    <storage value="internal" />
+</litepal>

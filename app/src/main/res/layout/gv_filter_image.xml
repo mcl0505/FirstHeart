@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/layout_img"
+        android:layout_width="108dp"
+        android:layout_height="108dp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/fiv"
+            android:layout_width="108dp"
+            android:layout_height="108dp"
+            android:scaleType="fitXY"
+            app:qmui_corner_radius="5dp" />
+
+        <ImageView
+            android:id="@+id/iv_del"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/fabu_tupian_shanchu"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+</RelativeLayout>

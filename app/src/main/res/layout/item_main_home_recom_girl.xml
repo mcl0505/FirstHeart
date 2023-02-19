@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingVertical="5dp"
+    android:paddingHorizontal="15dp">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:background="@drawable/shape_eeeeee_bg_4_0"
+        >
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="10dp"
+            android:src="@mipmap/user_header" />
+
+        <TextView
+            android:id="@+id/into"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:text="进房"
+            android:gravity="center"
+            android:paddingHorizontal="10dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/shape_main_color_12_0"
+            android:textColor="@color/new_main_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/girl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_main_color_4"
+            android:text="女友厅"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:paddingHorizontal="3dp"
+            app:layout_constraintTop_toTopOf="@id/avatar"
+            app:layout_constraintStart_toEndOf="@id/avatar"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:paddingVertical="2dp"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/girl"
+            app:layout_constraintTop_toTopOf="@id/girl"
+            app:layout_constraintBottom_toBottomOf="@id/girl"
+            android:text="@string/app_name"
+            android:textColor="@color/font_333333"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/girl"
+            app:layout_constraintBottom_toBottomOf="@id/avatar"
+            app:layout_constraintTop_toBottomOf="@id/girl"
+            android:text="@string/app_name"
+            android:textColor="@color/font_333333"
+            android:layout_marginLeft="5dp"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.v7.widget.LinearLayoutCompat>

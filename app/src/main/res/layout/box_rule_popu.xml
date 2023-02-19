@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="460dp"
+    android:layout_gravity="bottom"
+    android:background="@drawable/shape_jindan_bg2"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingTop="15dp"
+    android:paddingRight="15dp"
+    android:paddingBottom="19dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:lineSpacingExtra="18dp"
+            android:text="玩法说明"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_size_18" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/dp_10"
+            android:src="@mipmap/message_pop_close" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/box_tit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:lineSpacingExtra="18dp"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+</LinearLayout>

@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.konglianyuyin.mx">
+
+    <application
+        android:name="com.jess.arms.base.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="com.konglianyuyin.mx.activity.room.LotteryHistoryActivity"></activity>
+        <activity android:name="com.konglianyuyin.mx.activity.room.LotteryActivity" />
+        <activity android:name="com.konglianyuyin.mx.activity.my.InviteAcvitity" />
+        <activity android:name="com.konglianyuyin.mx.activity.room.RoomRankActivity" />
+        <activity android:name="com.konglianyuyin.mx.activity.my.CPActivity" />
+        <activity android:name="com.konglianyuyin.mx.activity.my.MyPackageActivity" /> <!-- 可选 -->
+        <activity android:name="com.pgyersdk.feedback.FeedbackActivity" /> <!-- Jar 包集成的方式 必填 -->
+        <activity
+            android:name="com.konglianyuyin.mx.activity.SearchDynamicActivity"
+            android:label="@string/text_relative_dynamic"
+            android:screenOrientation="portrait" /> <!-- 必填 -->
+        <activity
+            android:name="com.konglianyuyin.mx.activity.my.DengJiShuoMingActivity"
+            android:screenOrientation="portrait" /> <!-- android:value="3df59a0a7a4ef74abe6cf2a44d978e09"></meta-data> -->
+        <!-- 百度统计//////开始///////////////////////////////////////// -->
+        <activity
+            android:name="com.konglianyuyin.mx.activity.SearchRoomActivity"
+            android:label="@string/text_relative_room"
+            android:screenOrientation="portrait" /> <!-- 百度统计渠道商编号 -->
+        <activity
+            android:name="com.konglianyuyin.mx.activity.SearchUserActivity"
+            android:label="@string/text_relative_user"
+            android:screenOrientation="portrait" /> <!-- 是否开启错误日志统计，默认为false -->
+        <activity
+            android:name="com.konglianyuyin.mx.activity.SearchResultActivity"
+            android:screenOrientation="portrait" /> <!-- 日志仅在wifi网络下发送，默认为false -->
+        <activity
+            android:name="com.konglianyuyin.mx.activity.SearchHisActivity"
+            android:screenOrientation="portrait" /> <!-- 是否获取基站位置信息 ,默认为true -->
+        <activity
+            android:name="com.konglianyuyin.mx.activity.room.CollectionRoomListActivity"
+            android:screenOrientation="portrait" /> <!-- 是否获取GPS位置信息，默认为true -->
+        <activity
+            android:name="com.konglianyuyin.mx.activity.login.BingPhoneActivity"
+            android:screenOrientation="portrait" /> <!-- 是否获取WIFI位置信息，默认为true -->
+        <activity
+            android:name="com.konglianyuyin.mx.activity.mine.BingCancelActivity"
+            android:screenOrientation="portrait" /> <!-- 日志发送策略，可选值：APP_START、ONCE_A_DAY、SET_TIME_INTERVAL，默认为APP_START -->
+        <activity
+            android:name="com.konglianyuyin.mx.activity.mine.BindSuccessActivity"
+            android:screenOrientation="portrait" /> <!-- 日志发送策略 为SET_TIME_INTERVAL时，需设定时间间隔。取值为1-24的整数，默认为1 -->
+        <activity
+            android:name="com.konglianyuyin.mx.activity.my.GradeCenterActivity"
+            android:screenOrientation="portrait" /> <!-- 百度统计////////结束/////////////////////////////////////////////// -->
+        <activity
+            android:name="com.konglianyuyin.mx.activity.my.MemberCoreActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.my.MyFollowActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.mine.RealNameActivity"
+            android:label="@string/text_real_name_verify"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.mine.WebRealNameActivity"
+            android:label="@string/text_real_name_verify"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.mine.MyProfitActivity"
+            android:label="@string/text_my_money"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.mine.CashMoneyActivity"
+            android:label="@string/text_withdraw"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.AgreementActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.mine.BindAliPayNewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.my.BlackListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.login.ModifyPsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.my.ModifyDataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.mine.CashHisActivity"
+            android:label="@string/text_recorder"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.mine.MoneyActivity"
+            android:label="@string/text_my_wallet"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.message.MessageOfficeActivity"
+            android:label="@string/text_government_msg"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.my.MyPersonalCenterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.message.ReportActivity"
+            android:label="@string/text_to_report"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.message.MessageSetActivity"
+            android:label="@string/text_chat_setting"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.message.MessageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="com.konglianyuyin.mx"
+                    android:pathPrefix="/conversation/"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.konglianyuyin.mx.activity.dynamic.CommentDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.dynamic.MeZanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.dynamic.DynamicNewsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.dynamic.DynamicDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.ChargeActivity"
+            android:label="@string/text_my_account" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.dynamic.TopicTrendsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.room.MyMusciActivity"
+            android:label="@string/text_local_music"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.room.MusicActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.dynamic.HeatTopicActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.room.SetAdminActivity"
+            android:label="@string/text_set_admin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.dynamic.SocialReleaseActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.room.RankActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.EditGaoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.room.RoomRankActivityNew"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.SetActivity"
+            android:label="@string/text_setting"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.room.RoomSettingActivity"
+            android:label="@string/text_setting_room"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.HelpActivity"
+            android:label="@string/text_help_feedback"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.base.BaseWebActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.ChangeUserActivity"
+            android:label="@string/text_modify_info"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.room.AdminHomeActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme2222222222"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.mine.GiveOtherActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.mine.MyGiveMainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.mine.MyGiveHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.mine.MoneyActivityNew"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.UserMineStateActivity"
+            android:label="@string/text_user_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.login.UploadActivity"
+            android:label="@string/text_complete_info"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.login.SexActivity"
+            android:label="@string/text_choice_sex"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.login.RegisterActivity"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.login.LoginActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.login.ForgetPsActivity"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name="com.konglianyuyin.mx.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/wx_theme" />
+        <activity
+            android:name="com.konglianyuyin.mx.activity.MainActivity"
+            android:label=""
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="com.konglianyuyin.mx"
+                    android:pathPrefix="/conversationlist"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.konglianyuyin.mx.activity.LunchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/LunchStyle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.konglianyuyin.mx.activity.GuildActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.konglianyuyin.mx.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent101813872" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="PGYER_APPID"
+            android:value="07d8ecc250ce208ceaabcfea2247c305" />
+        <meta-data
+            android:name="BaiduMobAd_STAT_ID"
+            android:value="" />
+        <meta-data
+            android:name="BaiduMobAd_CHANNEL"
+            android:value="youmeng_channnel" />
+        <meta-data
+            android:name="BaiduMobAd_EXCEPTION_LOG"
+            android:value="false" />
+        <meta-data
+            android:name="BaiduMobAd_ONLY_WIFI"
+            android:value="false" />
+        <meta-data
+            android:name="BaiduMobAd_CELL_LOCATION"
+            android:value="true" />
+        <!--
+         只要依赖 AutoSize 就必须填写设计图尺寸, 否则报错,
+        不想使用 AutoSize 就不要依赖 AutoSize 只要填写完设计图的尺寸,
+        AutoSize 就会自动启动, 以下 dp 尺寸是根据公式 px / (dpi / 160) 求出,
+        运算时使用测试机的 dpi 即可,
+        AndroidAutoSize 的详细介绍请看这里 https://juejin.im/post/5bce688e6fb9a05cf715d1c2
+        -->
+        <meta-data
+            android:name="BaiduMobAd_GPS_LOCATION"
+            android:value="true" />
+        <meta-data
+            android:name="BaiduMobAd_WIFI_LOCATION"
+            android:value="true" /> <!-- arms配置 -->
+        <meta-data
+            android:name="BaiduMobAd_SEND_STRATEGY"
+            android:value="APP_START" />
+        <meta-data
+            android:name="BaiduMobAd_TIME_INTERVAL"
+            android:value="1" />
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="375" />
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="667" />
+        <meta-data
+            android:name="com.konglianyuyin.mx.app.GlobalConfiguration"
+            android:value="ConfigModule" /> <!-- 分享的配置 -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="6077a0f22dfb8509d34e6522" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="u100" />
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" />
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" /> <!-- 友盟 -->
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
+
+        <provider
+            android:name="com.pgyersdk.PgyerProvider"
+            android:authorities="${applicationId}.com.pgyer.provider"
+            android:exported="false" />
+
+        <receiver android:name="com.konglianyuyin.mx.activity.dynamic.SocialReleaseActivity$MyReceiver">
+            <intent-filter>
+                <action android:name="SendNotify" />
+                <action android:name="play_recorder_complete" />
+            </intent-filter>
+        </receiver> <!-- ///////////////////沉浸式相关////////////////// -->
+        <service android:name="com.konglianyuyin.mx.SendMessageService" /> <!-- 适配华为（huawei）刘海屏 -->
+        <service android:name="com.zlw.main.recorderlib.recorder.RecordService" /> <!-- 适配小米（xiaomi）刘海屏 -->
+        <service android:name="com.konglianyuyin.mx.app.service.RoomPlayService" />
+    </application>
+
+    <permission
+        android:name="com.konglianyuyin.mx.permission.RECEIVE_MSG"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- The Agora SDK requires Bluetooth permissions in case users are using Bluetooth devices. -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 控制呼吸灯，振动器等，用于新消息提醒 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- SDK 权限申明, 第三方 APP 接入时，请将 com.netease.nim.demo 替换为自己的包名 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 获取网络状态 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- 网络通信 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT" /> <!-- 获取设备信息 -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- 获取MAC地址 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 读写sdcard，storage等等 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 允许程序录制音频 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 和下面的 uses-permission 一起加入到你的 AndroidManifest 文件中。 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 接收 SDK 消息广播权限， 第三方 APP 接入时，请将 com.netease.nim.demo 替换为自己的包名 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <uses-permission android:name="com.konglianyuyin.mx.permission.RECEIVE_MSG" />
+
+</manifest>

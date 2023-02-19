@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="45dp"
+        android:layout_height="45dp">
+        <LinearLayout
+            android:id="@+id/llBg"
+            android:orientation="vertical"
+            android:layout_width="45dp"
+            android:gravity="center"
+            android:layout_height="45dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/item_img"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/room_kazuo_kong" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:layout_centerInParent="true"
+                    app:riv_corner_radius="180dip"
+                    app:riv_border_width="0dip"
+                    android:scaleType="fitXY"
+                    app:riv_border_color="@color/font_83000000"
+                    android:id="@+id/imgBg"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@color/font_83000000" />
+            </RelativeLayout>
+
+
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_marginTop="-5dp"
+                android:layout_width="21dp"
+                android:layout_height="9dp"
+                android:layout_gravity="center_horizontal"
+                android:text="5"
+                android:gravity="center"
+                android:background="@mipmap/room_xuhao_weizhi"
+                android:textColor="@color/white"
+                android:textSize="6dp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

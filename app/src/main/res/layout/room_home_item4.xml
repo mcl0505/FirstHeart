@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="-10dp"
+    android:orientation="horizontal"
+    android:gravity="center"
+    tools:showIn="@layout/activity_admin_home_1">
+
+
+    <LinearLayout
+        android:id="@+id/llLeft"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="80dp"
+            android:layout_height="80dp">
+
+            <com.opensource.svgaplayer.SVGAImageView
+                android:id="@+id/imgQuan3"
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+
+            <com.konglianyuyin.mx.view.RippleView
+                android:id="@+id/wave_3"
+                style="@style/wave_style"
+                />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_centerInParent="true"
+                app:riv_corner_radius="180dip"
+                app:riv_border_width="1dip"
+                app:riv_border_color="@color/font_89E0FB"
+                android:id="@+id/img3"
+                android:layout_width="50dp"
+                android:scaleType="fitXY"
+                android:layout_height="50dp"
+                android:src="@mipmap/user_header" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+                <ImageView
+                    android:id="@+id/img_txk_3"
+                    style="@style/txk_style"
+                    />
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp"></View>
+            </LinearLayout>
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/imgVedio3"
+                android:layout_width="17dp"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@id/img3"
+                android:layout_alignRight="@id/img3"
+                android:src="@drawable/selector_room_header_bimai" />
+
+            <TextView
+                android:id="@+id/textNum3"
+                android:layout_width="15dp"
+                android:layout_height="10dp"
+                android:text="3"
+                android:textSize="7sp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:background="@drawable/selector_room_number"
+                android:layout_alignBottom="@+id/img3"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/imgGif3"
+                android:scaleType="fitXY"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_marginTop="-12dp"
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="哈哈哈哈哈哈"
+            android:maxLength="6"
+            android:textColor="@color/white"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginLeft="30dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="80dp"
+            android:layout_height="80dp">
+
+            <com.opensource.svgaplayer.SVGAImageView
+                android:id="@+id/imgQuan4"
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+
+            <com.konglianyuyin.mx.view.RippleView
+                android:id="@+id/wave_4"
+                style="@style/wave_style"
+                />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_centerInParent="true"
+                app:riv_corner_radius="180dip"
+                app:riv_border_width="1dip"
+                app:riv_border_color="@color/font_89E0FB"
+                android:id="@+id/img4"
+                android:layout_width="50dp"
+                android:scaleType="fitXY"
+                android:layout_height="50dp"
+                android:src="@mipmap/user_header" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+                <ImageView
+                    android:id="@+id/img_txk_4"
+                    style="@style/txk_style"
+                    />
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp"></View>
+            </LinearLayout>
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/imgVedio4"
+                android:layout_width="17dp"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@id/img4"
+                android:layout_alignRight="@id/img4"
+                android:src="@drawable/selector_room_header_bimai" />
+
+            <TextView
+                android:id="@+id/textNum4"
+                android:layout_width="15dp"
+                android:layout_height="10dp"
+                android:text="4"
+                android:textSize="7sp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:background="@drawable/selector_room_number"
+                android:layout_alignBottom="@+id/img4"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/imgGif4"
+                android:scaleType="fitXY"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_marginTop="-12dp"
+            android:id="@+id/text4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="哈哈哈哈哈哈"
+            android:textColor="@color/white"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+</LinearLayout>

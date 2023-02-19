@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/live_home_buy_key"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_buy_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="购买钥匙"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_size_14"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@color/white"
+        android:padding="22dp">
+
+        <LinearLayout
+            android:id="@+id/layout_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="数量："
+                android:textColor="@color/font_333333"
+                android:textSize="@dimen/txt_size_12" />
+
+            <RelativeLayout
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:background="@drawable/shape_3a1066_12"
+                android:gravity="center_vertical"
+                android:minWidth="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_gemstone_integral">
+
+                <ImageView
+                    android:id="@+id/img_sub_key"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_sub_buy_key" />
+
+                <ImageView
+                    android:id="@+id/img_key"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="3dp"
+                    android:layout_toRightOf="@id/img_sub_key"
+                    android:src="@mipmap/icon_open_key" />
+
+                <ImageView
+                    android:id="@+id/img_add_key"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/icon_stone_add" />
+
+                <EditText
+                    android:id="@+id/et_key_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="3dp"
+                    android:layout_toLeftOf="@id/img_add_key"
+                    android:layout_toRightOf="@id/img_key"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="#FFFDD620"
+
+                    android:textSize="@dimen/txt_size_13" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="价格："
+            android:textColor="@color/font_333333"
+            android:textSize="@dimen/txt_size_12"
+            app:layout_constraintLeft_toLeftOf="@id/layout_number"
+            app:layout_constraintTop_toBottomOf="@id/layout_number" />
+
+        <LinearLayout
+            android:id="@+id/layout_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintRight_toRightOf="@id/layout_number"
+            app:layout_constraintTop_toBottomOf="@id/layout_number">
+
+            <TextView
+                android:id="@+id/tv_demand_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="9dp"
+                android:ellipsize="end"
+                android:ems="5"
+                android:gravity="end"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="#3A1066"
+                android:textSize="@dimen/sp_14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/mizuan"
+                app:layout_constraintRight_toRightOf="@id/layout_number"
+                app:layout_constraintTop_toBottomOf="@id/layout_number" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btn_buy"
+            android:layout_width="165dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:background="@mipmap/live_home_dia_sure"
+            android:gravity="center"
+            android:text="购买"
+            android:textColor="#FF333333"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_price" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

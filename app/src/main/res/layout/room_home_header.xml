@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="12dp"
+    android:orientation="horizontal"
+    tools:showIn="@layout/activity_admin_home_1">
+
+    <ImageView
+        android:id="@+id/imgBack"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:scaleType="center"
+        android:src="@mipmap/icon_room_back" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="8dp"
+        android:layout_toRightOf="@+id/imgBack"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:id="@+id/textName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="100dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                tools:text="" />
+
+            <com.konglianyuyin.mx.view.ShapeTextView
+                android:id="@+id/textType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:visibility="gone"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="娱乐"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                app:cornersRadius="5dp"
+                app:solidNormal="#00000000"
+                app:strokeColor="@color/white"
+                app:strokeWidth="1dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID:00123"
+                    android:textColor="@color/white"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/online_pepole"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/imgMusic"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_room_yy" />
+
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/imgCollection"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/selector_room_shoucang" />
+
+        <ImageView
+            android:id="@+id/imgAdd"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/jiahap" />
+
+        <ImageView
+            android:id="@+id/textRight"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/more" />
+
+    </LinearLayout>
+
+</LinearLayout>
