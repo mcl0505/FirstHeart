@@ -814,7 +814,7 @@ public class AdminHomeActivity extends MyBaseArmActivity {
                 textLayout.setVisibility(View.GONE);
                 fl_mng_apply.setVisibility(View.VISIBLE);
 
-                ivWantSpeakList.setVisibility(ExtConfig.isMicrophoneRequest?View.INVISIBLE:View.VISIBLE);
+                ivWantSpeakList.setVisibility(ExtConfig.isMicrophoneRequest?View.VISIBLE:View.INVISIBLE);
             } else if (user_type == 2) {
                 imgAdd.setVisibility(View.VISIBLE);
                 imgBimai.setVisibility(View.GONE);

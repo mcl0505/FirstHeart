@@ -125,6 +125,7 @@ public class GemStoneDialogNew extends Dialog {
     private CommonModel commonModel;
     private RxErrorHandler mErrorHandler;
     private BaoXiangBean.DataBean mDataBean;
+    String tag = "0";//0=普通  1=高级
 
     public GemStoneDialogNew(@NonNull Activity context, CommonModel commonModel, RxErrorHandler errorHandler) {
         super(context, R.style.myChooseDialog);
@@ -260,7 +261,7 @@ public class GemStoneDialogNew extends Dialog {
                 boxJiangChiWindow.showAtLocation(layoutBaoxiao, Gravity.CENTER, 0, 0);
                 break;
             case R.id.tv_shuoming:
-                BoxTitleWindow boxTitleWindow = new BoxTitleWindow(mContext, layoutBaoxiao, commonModel, mErrorHandler);
+                BoxTitleWindow boxTitleWindow = new BoxTitleWindow(mContext, layoutBaoxiao, commonModel, mErrorHandler,commonTabLayout.getCurrentTab()+"");
                 boxTitleWindow.showAtLocation(layoutBaoxiao, Gravity.CENTER, 0, 0);
                 break;
             case R.id.tv_chongzhi:

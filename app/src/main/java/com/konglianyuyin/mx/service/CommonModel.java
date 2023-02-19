@@ -26,6 +26,7 @@ import com.konglianyuyin.mx.bean.AliInfor;
 import com.konglianyuyin.mx.bean.AllCommentBean;
 import com.konglianyuyin.mx.bean.AllRoomBean;
 import com.konglianyuyin.mx.bean.BXShuoMingTextBean;
+import com.konglianyuyin.mx.bean.BXUserCostBean;
 import com.konglianyuyin.mx.bean.BannerBean;
 import com.konglianyuyin.mx.bean.BaoXiangBean;
 import com.konglianyuyin.mx.bean.BaseBean;
@@ -1057,5 +1058,9 @@ public class CommonModel extends com.jess.arms.mvp.BaseModel {
     public Observable<UpdateApkBean> checkVersion(@Field("type") String type,
                                                   @Field("version") String version){
         return mRepositoryManager.obtainRetrofitService(CommonService.class).checkVersion(type, version);
+    }
+
+    public Observable<BXUserCostBean> getUserCost(@Field("user_id") String user_id, @Field("type") int type) {
+        return mRepositoryManager.obtainRetrofitService(CommonService.class).getUserCost(user_id, type);
     }
 }

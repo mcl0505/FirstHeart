@@ -415,7 +415,7 @@ public class GemStoneDialog extends Dialog {
                 boxJiangChiWindow.showAtLocation(mTvGemstoneIntegral, Gravity.CENTER, 0, 0);
                 break;
             case R.id.img_gemstone_intro:
-                BoxTitleWindow boxTitleWindow = new BoxTitleWindow(mContext, mConstraintLayoutBaoxiao, commonModel, mErrorHandler);
+                BoxTitleWindow boxTitleWindow = new BoxTitleWindow(mContext, mConstraintLayoutBaoxiao, commonModel, mErrorHandler,"0");
                 boxTitleWindow.showAtLocation(mTvGemstoneIntegral, Gravity.CENTER, 0, 0);
                 break;
             case R.id.img_gemstone_exchange:

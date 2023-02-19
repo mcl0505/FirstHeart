@@ -8,6 +8,7 @@ import com.konglianyuyin.mx.bean.AliInfor;
 import com.konglianyuyin.mx.bean.AllCommentBean;
 import com.konglianyuyin.mx.bean.AllRoomBean;
 import com.konglianyuyin.mx.bean.BXShuoMingTextBean;
+import com.konglianyuyin.mx.bean.BXUserCostBean;
 import com.konglianyuyin.mx.bean.BannerBean;
 import com.konglianyuyin.mx.bean.BaoXiangBean;
 import com.konglianyuyin.mx.bean.BaseBean;
@@ -1546,4 +1547,11 @@ public interface CommonService {
     @FormUrlEncoded
     Observable<UpdateApkBean> checkVersion(@Field("type") String newtoken,
                                            @Field("version") String uid);
+
+    /**
+     * 玩法说明_用户投入、产出、比例
+     */
+    @POST(APP_DOMAIN + "getUserCost")
+    @FormUrlEncoded
+    Observable<BXUserCostBean> getUserCost(@Field("user_id") String user_id, @Field("type") int type);
 }

@@ -5,7 +5,7 @@ import com.konglianyuyin.mx.R;
 public class ExtConfig {
     //是否开启点击头像显示转赠按钮  附带转赠是发送私聊消息   true=显示转赠   false=不显示转赠
     public static boolean isTransfer = true;
-    //上麦是否需要申请  true=直接上麦  false=申请上麦
+    //上麦是否需要申请  true=申请上麦  false=直接上麦
     public static boolean isMicrophoneRequest = false;
     //是否显示卡罗牌 true=显示 false=不显示
     public static boolean isShowLottery = false;

@@ -32,6 +32,47 @@
             android:src="@mipmap/message_pop_close" />
     </RelativeLayout>
 
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:showDividers="end|middle|beginning"
+
+        >
+
+        <TextView
+            android:id="@+id/consume"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="消耗\n"
+            android:textColor="@color/white"
+
+            />
+
+        <TextView
+            android:id="@+id/gain"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="产出\n"
+
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/ratio"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="比例\n"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/box_tit_text"
         android:layout_width="match_parent"
