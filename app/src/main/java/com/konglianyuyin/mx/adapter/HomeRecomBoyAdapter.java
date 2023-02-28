@@ -86,8 +86,8 @@ public class HomeRecomBoyAdapter extends RefreshAdapter<RecommenRoomBean.DataBea
             tv_nick.setText(bean.getRoom_name());
             String roomType = bean.getRoom_type();
             if (!TextUtils.isEmpty(roomType)) {
-                iv_tip_bg.setVisibility(View.VISIBLE);
-                tv_tip.setVisibility(View.VISIBLE);
+                iv_tip_bg.setVisibility(View.GONE);
+                tv_tip.setVisibility(View.GONE);
                 tv_tip.setText(bean.getName());
                 switch (roomType) {
                     case "4":
