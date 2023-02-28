@@ -37,11 +37,12 @@ import java.util.List;
 @ActivityScope
 public class RoomMessageAdapter extends BaseQuickAdapter<MessageBean, BaseViewHolder> {
 //    messageType     1：正常的 聊天消息  2：进入房间  3： 刷新麦序列表  4 ：礼物消息  5 ：表型消息
-
+    String roomId;
     AdminHomeActivity mActivity;
-    public RoomMessageAdapter(AdminHomeActivity context) {
+    public RoomMessageAdapter(AdminHomeActivity context,String roomId) {
         super(R.layout.item_room_message, new ArrayList<>());
         mActivity = context;
+        this.roomId = roomId;
     }
 
     @Override
@@ -629,6 +630,7 @@ public class RoomMessageAdapter extends BaseQuickAdapter<MessageBean, BaseViewHo
                 @Override
                 public void onClick(View widget) {//点击事件
                     LogUtils.debugInfo("点击了名字=======");
+
                     mActivity.setFirstNameClick(helper.getAdapterPosition() - 1);
                 }
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@drawable/shape_eeeeee_bg_4_0"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/imgHonBao"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@mipmap/hongbao"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/redNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1金币"
+        android:gravity="center"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintStart_toEndOf="@id/imgHonBao"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="赠送红包"
+        app:layout_constraintTop_toBottomOf="@id/redNumber"
+        app:layout_constraintStart_toStartOf="@id/redNumber"/>
+</android.support.constraint.ConstraintLayout>

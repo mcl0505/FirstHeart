@@ -1,13 +1,18 @@
 package com.konglianyuyin.mx.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.konglianyuyin.mx.bean.MiniOfficBean;
 
+import io.rong.imkit.RongIM;
 import io.rong.imkit.fragment.ConversationListFragment;
+import io.rong.imkit.model.UIConversation;
+import io.rong.imlib.model.Conversation;
 
 /**
  * 作者:sgm
@@ -29,9 +34,35 @@ public class MessageHeaderFrament extends ConversationListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        miniOfficBean = (MiniOfficBean) getArguments().getSerializable("miniOfficBean");
+
+
+
+        RongIM.setConversationListBehaviorListener(new RongIM.ConversationListBehaviorListener() {
+            @Override
+            public boolean onConversationPortraitClick(Context context, Conversation.ConversationType conversationType, String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onConversationPortraitLongClick(Context context, Conversation.ConversationType conversationType, String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onConversationLongClick(Context context, View view, UIConversation uiConversation) {
+                return false;
+            }
+
+            @Override
+            public boolean onConversationClick(Context context, View view, UIConversation uiConversation) {
+                return false;
+            }
+        });
     }
 
-//    @Override
+
+
+    //    @Override
 //    protected List<View> onAddHeaderView() {
 //        List<View> headerViews = super.onAddHeaderView();
 //        View inflate = ArmsUtils.inflate(getActivity(), R.layout.item_message_header);

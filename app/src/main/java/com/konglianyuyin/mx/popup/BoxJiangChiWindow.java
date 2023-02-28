@@ -116,7 +116,21 @@ public class BoxJiangChiWindow extends PopupWindow {
 
     //获取纪录
     private void actionJiangChiExchange() {
-        RxUtils.loading(commonModel.getAwardBoxList((type + 1) + ""), mContext)
+//        RxUtils.loading(commonModel.getAwardBoxList((type + 1) + ""), mContext)
+//                .subscribe(new ErrorHandleSubscriber<BoxJiangChiBean>(mContext.mErrorHandler) {
+//                    @Override
+//                    public void onNext(BoxJiangChiBean boxJiangChiBean) {
+//                        List<BoxJiangChiBean.DataBean> data = boxJiangChiBean.getData();
+//                        new DealRefreshHelper<BoxJiangChiBean.DataBean>().dealDataToUI(mSm, mAdapter, null, data, mDataList, mPullRefreshBean);
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable t) {
+//                        super.onError(t);
+//                        new DealRefreshHelper<BoxJiangChiBean.DataBean>().dealDataToUI(mSm, mAdapter, null, new ArrayList<>(), mDataList, mPullRefreshBean);
+//                    }
+//                });
+        RxUtils.loading(commonModel.getAwardBoxList((type) + ""), mContext)
                 .subscribe(new ErrorHandleSubscriber<BoxJiangChiBean>(mContext.mErrorHandler) {
                     @Override
                     public void onNext(BoxJiangChiBean boxJiangChiBean) {

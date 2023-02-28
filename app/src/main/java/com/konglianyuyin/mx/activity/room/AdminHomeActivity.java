@@ -61,6 +61,7 @@ import com.konglianyuyin.mx.bean.RequestUpMicrophoneBean;
 import com.konglianyuyin.mx.bean.Wxmodel;
 import com.konglianyuyin.mx.ext.ExtConfig;
 import com.konglianyuyin.mx.popup.RechargePopWindow;
+import com.konglianyuyin.mx.popup.TreasureBoxDialog;
 import com.konglianyuyin.mx.popup.UpMicrophonePopWindow;
 import com.konglianyuyin.mx.utils.LogUtil;
 import com.konglianyuyin.mx.utils.PayResult;
@@ -832,7 +833,7 @@ public class AdminHomeActivity extends MyBaseArmActivity {
             }
 
             // 房间聊天列表适配器
-            roomMessageAdapter = new RoomMessageAdapter(this);
+            roomMessageAdapter = new RoomMessageAdapter(this,uid);
             View headerMessage = ArmsUtils.inflate(this, R.layout.message_header);
             TextView textNameXitong = headerMessage.findViewById(R.id.textNameXitong);
             textNameXitong.setText("系统通知：" + enterRoom.getRoom_info().get(0).getRoom_welcome());
@@ -849,6 +850,11 @@ public class AdminHomeActivity extends MyBaseArmActivity {
             roomMessageAdapter.setOnItemChildClickListener((adapter, view, position) -> {
                 MessageBean itemBean = roomMessageAdapter.getData().get(position);
                 if (itemBean == null) return;
+//                //点击的消息在本房间发送的
+//                if (itemBean.getRoomId222().equals(uid)){
+//
+//                }
+
                 String type = itemBean.getMessageType();
                 if (TextUtils.equals("8", type) || TextUtils.equals("9", type) || TextUtils.equals("10", type) || TextUtils.equals("11", type)) {//这个几个都是一个textview设置不同点击事件
                     return;
@@ -859,6 +865,7 @@ public class AdminHomeActivity extends MyBaseArmActivity {
                         setSecondNameClick(position);
                     }
                 }
+
 
             });
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -3175,8 +3182,10 @@ public class AdminHomeActivity extends MyBaseArmActivity {
                 });
                 break;
             case R.id.baoxiang:
-                GemStoneDialogNew gemStoneDialog = new GemStoneDialogNew(AdminHomeActivity.this, commonModel, mErrorHandler);
-                gemStoneDialog.show();
+//                GemStoneDialogNew gemStoneDialog = new GemStoneDialogNew(AdminHomeActivity.this, commonModel, mErrorHandler,uid);
+//                gemStoneDialog.show();
+                TreasureBoxDialog boxDialog = new TreasureBoxDialog(AdminHomeActivity.this, commonModel, mErrorHandler,uid);
+                boxDialog.show();
 //                MessageDialog.show(AdminHomeActivity.this,"","1、开宝箱需要优先购买钥匙，钥匙10红钻/ 把;\n2、可以单次开锁宝箱，也可以10次、100 次;\n3、宝箱分为两种普通宝箱和守护宝箱，守护 宝箱每天定时定点开启;\n4、宝箱中的神秘礼物定期会更新，赠送和收 到神秘礼物的双方若已经开通守护点数，则会 提升两人的守护值;\n5、宝箱中开到的礼物会自动加入背包列表， 可以随时使用;\n6、可以在中奖记录中查看最近一周的开奖记 录;\n7、如有问题，请截图保存并与Mini官方客服 联系;",null);
 //                CustomDialog.show(AdminHomeActivity.this, R.layout.box_rule_popu, new CustomDialog.OnBindView() {
 //                    @Override

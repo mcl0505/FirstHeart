@@ -126,12 +126,14 @@ public class GemStoneDialogNew extends Dialog {
     private RxErrorHandler mErrorHandler;
     private BaoXiangBean.DataBean mDataBean;
     String tag = "0";//0=普通  1=高级
+    private String mRoomId;
 
-    public GemStoneDialogNew(@NonNull Activity context, CommonModel commonModel, RxErrorHandler errorHandler) {
+    public GemStoneDialogNew(@NonNull Activity context, CommonModel commonModel, RxErrorHandler errorHandler,String roomId) {
         super(context, R.style.myChooseDialog);
         mContext = (AdminHomeActivity) context;
         this.commonModel = commonModel;
         this.mErrorHandler = errorHandler;
+        this.mRoomId = roomId;
     }
 
     Animation rotate;
@@ -684,6 +686,7 @@ public class GemStoneDialogNew extends Dialog {
                                     messageBean.setMessage(openBoxBean.getData().getAward_tips());
 //                                    messageBean.award_tips = openBoxBean.getData().getAward_tips();
                                     messageBean.setMessageType("13");
+                                    messageBean.setRoomId222(mRoomId);
 
                                     MessageEvent2 messageEvent = new MessageEvent2();
                                     messageEvent.setStateMessage(StateMessage.PEOPLE_OPEN_GEMSTONE);

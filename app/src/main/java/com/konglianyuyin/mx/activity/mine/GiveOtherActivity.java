@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.LogUtils;
 import com.konglianyuyin.mx.R;
+import com.konglianyuyin.mx.activity.message.RedPackageMessage;
 import com.konglianyuyin.mx.app.utils.RxUtils;
 import com.konglianyuyin.mx.base.MyBaseArmActivity;
 import com.konglianyuyin.mx.base.UserManager;
@@ -130,8 +131,9 @@ public class GiveOtherActivity extends MyBaseArmActivity {
 //                }
 // 构造 TextMessage 实例
                 if (ExtConfig.isTransfer){
-                    TextMessage myTextMessage = TextMessage.obtain( edtNum.getText().toString()+"\n赠送红包");
+                    RedPackageMessage myTextMessage = RedPackageMessage.obtain( edtNum.getText().toString()+"金币");
                     Message myMessage = Message.obtain(getIntent().getStringExtra("id"), Conversation.ConversationType.PRIVATE, myTextMessage);
+
                     RongIM.getInstance().sendMessage(myMessage, null, null, new IRongCallback.ISendMessageCallback() {
                         @Override
                         public void onAttached(Message message) {

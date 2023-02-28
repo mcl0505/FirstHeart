@@ -25,5 +25,6 @@ public class WonPopupAdapter extends BaseQuickAdapter<OpenBoxBean.DataBean.Award
         helper.setText(R.id.num, "x" + item.getNum());
         helper.setText(R.id.price_tv, item.getPrice()+"钻");
         Glide.with(mContext).load(item.getShow_img()).into((ImageView) helper.getView(R.id.iv_img));
+
     }
 }

@@ -1,1 +1,1 @@
-include ':app', ':arms', ':circleRecycler_library', ':CallKit', ':IMKit', ':IMLib', ':RCSticker', ':banner'
+include ':app', ':arms', ':circleRecycler_library', ':IMKit', ':IMLib', ':RCSticker'

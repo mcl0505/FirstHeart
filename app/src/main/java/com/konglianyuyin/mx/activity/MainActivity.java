@@ -34,6 +34,7 @@ import com.jess.arms.utils.LogUtils;
 import com.konglianyuyin.mx.R;
 import com.konglianyuyin.mx.activity.login.LoginActivity;
 import com.konglianyuyin.mx.activity.message.LiaoBaExtensionModule;
+import com.konglianyuyin.mx.activity.message.RedPackageMessageItemProvider;
 import com.konglianyuyin.mx.activity.room.AdminHomeActivity;
 import com.konglianyuyin.mx.adapter.DanMuViewHolder;
 import com.konglianyuyin.mx.app.utils.RxUtils;
@@ -55,10 +56,10 @@ import com.konglianyuyin.mx.floatingview.MagnetViewListener;
 import com.konglianyuyin.mx.fragment.HomeMessageFragment;
 import com.konglianyuyin.mx.fragment.MainCenterFragment;
 import com.konglianyuyin.mx.fragment.MainFindFragment;
-import com.konglianyuyin.mx.fragment.MainHomeFragment;
 import com.konglianyuyin.mx.fragment.MainHomeNewFragment;
 import com.konglianyuyin.mx.fragment.MainHomeRankFragmentNew;
 import com.konglianyuyin.mx.http.HttpUtil;
+import com.konglianyuyin.mx.activity.message.RedPackageMessage;
 import com.konglianyuyin.mx.popup.WarningDialog;
 import com.konglianyuyin.mx.service.CommonModel;
 import com.konglianyuyin.mx.utils.ActivityUtils;
@@ -220,6 +221,10 @@ MainHomeNewFragment mainHomeFragment = new MainHomeNewFragment();
                             return false;
                         }
                     });
+
+                    //自定义转赠消息
+                    RongIM.registerMessageType(RedPackageMessage.class);
+                    RongIM.registerMessageTemplate(new RedPackageMessageItemProvider());
 
                     //        //连接成功以后设置用户消息
                     RongIM.setUserInfoProvider(new RongIM.UserInfoProvider() {
