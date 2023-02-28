@@ -134,6 +134,14 @@ public interface CommonService {
                             @Field("code") String code);
 
     /**
+     * 账号密码登录
+     */
+    @POST(APP_DOMAIN + "login")
+    @FormUrlEncoded
+    Observable<Login> loginPass(@Field("phone") String phone,
+                                @Field("pass") String pass);
+
+    /**
      * 验证码
      */
     @POST(APP_DOMAIN + "verification")

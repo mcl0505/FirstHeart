@@ -10,6 +10,7 @@ import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
@@ -117,7 +118,8 @@ public class LoginActivity extends MyBaseArmActivity {
     ImageView ivAgree;
     @BindView(R.id.tv_agree)
     TextView tvAgree;
-
+    @BindView(R.id.textpass)
+    TextView textpass;
 
     private String openid, nackName, iconurl, type;
     private boolean isAgree;
@@ -244,10 +246,27 @@ public class LoginActivity extends MyBaseArmActivity {
         }
     }
 
+    private int cash = 0;
 
-    @OnClick({R.id.btn_ok, R.id.textForget, R.id.textRegister, R.id.img1, R.id.img2, R.id.img3,R.id.iv_agree,R.id.textSend})
+    @OnClick({R.id.btn_ok, R.id.textForget, R.id.textRegister, R.id.img1, R.id.img2, R.id.img3,R.id.iv_agree,R.id.textSend,R.id.textpass})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.textpass:
+                if (cash==0){
+                    textSend.setVisibility(View.GONE);
+                    edtLoginPass.setHint("请输入登录密码");
+                    textpass.setText("验证码登录");
+                    edtLoginPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    cash = 1;
+                }else {
+                    textSend.setVisibility(View.VISIBLE);
+                    edtLoginPass.setHint("请输入验证码");
+                    textpass.setText("账号密码登录");
+                    edtLoginPass.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    cash = 0;
+                }
+
+                break;
             case R.id.textSend:
                 hideKeyboard(btnOk);
                 String phone1 = edtLoginName.getText().toString().replace(" ", "");
@@ -288,64 +307,11 @@ public class LoginActivity extends MyBaseArmActivity {
                     showMessage("账号输入不合法");
                 } else {
                     showDialogLoding();
-                    RxUtils.loading(
-                            commonModel.login(phone, code), this)
-                            .subscribe(new ErrorHandleSubscriber<Login>(mErrorHandler) {
-                                @Override
-                                public void onNext(Login userInfo) {
-                                    disDialogLoding();
-                                    //设置融云用户信息
-//                                    initRooIm(userInfo);
-
-//                                    Uri mediaUriFromPath = BaseUtils.getMediaUriFromPath(LoginActivity.this,
-//                                            userInfo.getData().getHeadimgurl());
-
-//                                    Uri mediaUriFromPath = Uri.parse(userInfo.getData().getHeadimgurl());
-//
-//                                    UserInfo user = new UserInfo(String.valueOf(userInfo.getData().getId()),
-//                                            userInfo.getData().getNickname(),mediaUriFromPath);
-//                                    RongIM.getInstance().setCurrentUserInfo(user);
-
-
-                                    showToast("登录成功");
-                                    //用户信息存入数据库
-                                    LoginData loginData = new LoginData();
-                                    loginData.setBirthday(userInfo.getData().getBirthday());
-                                    loginData.setCity(userInfo.getData().getCity());
-                                    loginData.setHeadimgurl(userInfo.getData().getHeadimgurl());
-                                    loginData.setIntroduction(userInfo.getData().getIntroduction());
-                                    loginData.setIs_room(userInfo.getData().getIs_room());
-                                    loginData.setLevel(userInfo.getData().getLevel());
-                                    loginData.setMizuan(userInfo.getData().getMizuan());
-                                    loginData.setNickname(userInfo.getData().getNickname());
-                                    loginData.setOpenid(userInfo.getData().getOpenid());
-                                    loginData.setUserId(userInfo.getData().getId());
-                                    loginData.setPass(userInfo.getData().getPass());
-                                    loginData.setPhone(userInfo.getData().getPhone());
-                                    loginData.setSex(userInfo.getData().getSex());
-                                    loginData.setRy_token(userInfo.getData().getRy_token());
-                                    loginData.setToken(userInfo.getData().getToken());
-                                    loginData.setNewtoken(userInfo.getData().getNewtoken());
-//                                    if(TextUtils.isEmpty(userInfo.getData().getProvince())){
-//                                        loginData.setPr(userInfo.getData().getProvince());
-//                                    }
-//                                    if(TextUtils.isEmpty(userInfo.getData().getCountry())){
-//                                        loginData.set(userInfo.getData().getCountry());
-//                                    }
-                                    LitePal.deleteAll(LoginData.class);
-                                    loginData.save();//litepal数据库，不能随便改LoginData数据
-                                    UserManager.initData();//存储完，初始化
-                                    EventBus.getDefault().post(new FirstEvent("指定发送", Constant.LOGIN));
-                                    ArmsUtils.startActivity(MainActivity.class);
-                                    finish();
-                                }
-
-                                @Override
-                                public void onError(Throwable t) {
-                                    super.onError(t);
-                                    disDialogLoding();
-                                }
-                            });
+                    if (cash==1){
+                        loginPass(phone,code);
+                    }else {
+                        loginCode(phone,code);
+                    }
                 }
                 break;
             case R.id.textForget:
@@ -377,6 +343,117 @@ public class LoginActivity extends MyBaseArmActivity {
             default:
         }
     }
+
+
+    private  void loginPass(String phone, String code){
+        RxUtils.loading(
+                        commonModel.loginPass(phone, code), this)
+                .subscribe(new ErrorHandleSubscriber<Login>(mErrorHandler) {
+                    @Override
+                    public void onNext(Login userInfo) {
+                        disDialogLoding();
+
+                        showToast("登录成功");
+                        //用户信息存入数据库
+                        LoginData loginData = new LoginData();
+                        loginData.setBirthday(userInfo.getData().getBirthday());
+                        loginData.setCity(userInfo.getData().getCity());
+                        loginData.setHeadimgurl(userInfo.getData().getHeadimgurl());
+                        loginData.setIntroduction(userInfo.getData().getIntroduction());
+                        loginData.setIs_room(userInfo.getData().getIs_room());
+                        loginData.setLevel(userInfo.getData().getLevel());
+                        loginData.setMizuan(userInfo.getData().getMizuan());
+                        loginData.setNickname(userInfo.getData().getNickname());
+                        loginData.setOpenid(userInfo.getData().getOpenid());
+                        loginData.setUserId(userInfo.getData().getId());
+                        loginData.setPass(userInfo.getData().getPass());
+                        loginData.setPhone(userInfo.getData().getPhone());
+                        loginData.setSex(userInfo.getData().getSex());
+                        loginData.setRy_token(userInfo.getData().getRy_token());
+                        loginData.setToken(userInfo.getData().getToken());
+                        loginData.setNewtoken(userInfo.getData().getNewtoken());
+//                                    if(TextUtils.isEmpty(userInfo.getData().getProvince())){
+//                                        loginData.setPr(userInfo.getData().getProvince());
+//                                    }
+//                                    if(TextUtils.isEmpty(userInfo.getData().getCountry())){
+//                                        loginData.set(userInfo.getData().getCountry());
+//                                    }
+                        LitePal.deleteAll(LoginData.class);
+                        loginData.save();//litepal数据库，不能随便改LoginData数据
+                        UserManager.initData();//存储完，初始化
+                        EventBus.getDefault().post(new FirstEvent("指定发送", Constant.LOGIN));
+                        ArmsUtils.startActivity(MainActivity.class);
+                        finish();
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                        super.onError(t);
+                        disDialogLoding();
+                    }
+                });
+    }
+    private void loginCode(String phone, String code){
+        RxUtils.loading(
+                        commonModel.login(phone, code), this)
+                .subscribe(new ErrorHandleSubscriber<Login>(mErrorHandler) {
+                    @Override
+                    public void onNext(Login userInfo) {
+                        disDialogLoding();
+                        //设置融云用户信息
+//                                    initRooIm(userInfo);
+
+//                                    Uri mediaUriFromPath = BaseUtils.getMediaUriFromPath(LoginActivity.this,
+//                                            userInfo.getData().getHeadimgurl());
+
+//                                    Uri mediaUriFromPath = Uri.parse(userInfo.getData().getHeadimgurl());
+//
+//                                    UserInfo user = new UserInfo(String.valueOf(userInfo.getData().getId()),
+//                                            userInfo.getData().getNickname(),mediaUriFromPath);
+//                                    RongIM.getInstance().setCurrentUserInfo(user);
+
+
+                        showToast("登录成功");
+                        //用户信息存入数据库
+                        LoginData loginData = new LoginData();
+                        loginData.setBirthday(userInfo.getData().getBirthday());
+                        loginData.setCity(userInfo.getData().getCity());
+                        loginData.setHeadimgurl(userInfo.getData().getHeadimgurl());
+                        loginData.setIntroduction(userInfo.getData().getIntroduction());
+                        loginData.setIs_room(userInfo.getData().getIs_room());
+                        loginData.setLevel(userInfo.getData().getLevel());
+                        loginData.setMizuan(userInfo.getData().getMizuan());
+                        loginData.setNickname(userInfo.getData().getNickname());
+                        loginData.setOpenid(userInfo.getData().getOpenid());
+                        loginData.setUserId(userInfo.getData().getId());
+                        loginData.setPass(userInfo.getData().getPass());
+                        loginData.setPhone(userInfo.getData().getPhone());
+                        loginData.setSex(userInfo.getData().getSex());
+                        loginData.setRy_token(userInfo.getData().getRy_token());
+                        loginData.setToken(userInfo.getData().getToken());
+                        loginData.setNewtoken(userInfo.getData().getNewtoken());
+//                                    if(TextUtils.isEmpty(userInfo.getData().getProvince())){
+//                                        loginData.setPr(userInfo.getData().getProvince());
+//                                    }
+//                                    if(TextUtils.isEmpty(userInfo.getData().getCountry())){
+//                                        loginData.set(userInfo.getData().getCountry());
+//                                    }
+                        LitePal.deleteAll(LoginData.class);
+                        loginData.save();//litepal数据库，不能随便改LoginData数据
+                        UserManager.initData();//存储完，初始化
+                        EventBus.getDefault().post(new FirstEvent("指定发送", Constant.LOGIN));
+                        ArmsUtils.startActivity(MainActivity.class);
+                        finish();
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                        super.onError(t);
+                        disDialogLoding();
+                    }
+                });
+    }
+
 
     private void setAgreementTextClick() {
         String content = tvAgree.getText().toString();

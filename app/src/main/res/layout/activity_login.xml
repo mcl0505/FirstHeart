@@ -67,7 +67,6 @@
         android:background="@null"
         android:hint="请输入验证码"
         android:inputType="number"
-        android:maxLength="4"
         android:textColor="@color/font_333333"
         android:textColorHint="@color/font_dddddd"
         android:textSize="14sp" />
@@ -112,6 +111,14 @@
             android:textColor="@color/app_bg"
             android:textSize="13sp"
             android:visibility="gone"/>
+        <TextView
+            android:id="@+id/textpass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="账号密码登录"
+            android:textColor="@color/app_bg"
+            android:textSize="13sp"
+            />
 
         <TextView
             android:id="@+id/textRegister"

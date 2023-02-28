@@ -158,6 +158,17 @@ public class CommonModel extends com.jess.arms.mvp.BaseModel {
                 .login(phone, code);
     }
 
+    /**
+     *新增账号密码登录
+     * @param phone
+     * @param pass
+     * @return
+     */
+    public Observable<Login> loginPass(String phone, String pass) {
+        return mRepositoryManager.obtainRetrofitService(CommonService.class)
+                .loginPass(phone, pass);
+    }
+
     public Observable<Register> is_verification(String phone, String code) {
         return mRepositoryManager.obtainRetrofitService(CommonService.class)
                 .is_verification(phone, code);

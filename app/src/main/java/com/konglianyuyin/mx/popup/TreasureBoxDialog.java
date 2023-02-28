@@ -289,7 +289,11 @@ public class TreasureBoxDialog extends Dialog {
                             aniList.clear();
                             aniList.addAll(openBoxBean.getData().getAwardList());
 
-                            mAdapter.setNewData(aniList);
+//                            mAdapter.setNewData(aniList);
+
+                            WonPopupWindow wonPopupWindow = new WonPopupWindow(mContext, boxBg, commonModel, mErrorHandler,aniList);
+                            wonPopupWindow.showAtLocation(boxBg, Gravity.CENTER, 0, 0);
+
                             getBaoXiang();
                             List<OpenBoxBean.DataBean.AwardListBean> awardList = openBoxBean.getData().getAwardList();
                             if (awardList != null && awardList.size() > 0) {

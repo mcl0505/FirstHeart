@@ -11,9 +11,11 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.konglianyuyin.mx.R;
 import com.konglianyuyin.mx.activity.room.AdminHomeActivity;
+import com.konglianyuyin.mx.adapter.TreasureBoxAdapter;
 import com.konglianyuyin.mx.adapter.WonPopupAdapter;
 import com.konglianyuyin.mx.base.MyBaseArmActivity;
 import com.konglianyuyin.mx.bean.OpenBoxBean;
@@ -31,7 +33,7 @@ public class WonPopupWindow extends PopupWindow {
     private SmartRefreshLayout mSm;
     private CommonModel commonModel;
     private RxErrorHandler mRxErrorHandler;
-    private WonPopupAdapter mAdapter;
+    private TreasureBoxAdapter mAdapter;
     private PullRefreshBean mPullRefreshBean = new PullRefreshBean();
 
     public WonPopupWindow(Activity context, View view, CommonModel commonModel, RxErrorHandler rxErrorHandler, List<OpenBoxBean.DataBean.AwardListBean> list) {
@@ -41,6 +43,7 @@ public class WonPopupWindow extends PopupWindow {
         this.mRxErrorHandler = rxErrorHandler;
         View view1 = LayoutInflater.from(context).inflate(R.layout.won_window, null);
         recyclerView = view1.findViewById(R.id.recyclerview);
+        TextView price = view1.findViewById(R.id.price);
         ImageView iv_close = view1.findViewById(R.id.iv_close);
         iv_close.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,11 +75,19 @@ public class WonPopupWindow extends PopupWindow {
         this.setWidth(view.getMeasuredWidth());
 //        this.setHeight(view.getMeasuredHeight() - 100);
         context.getWindow().setAttributes(params);
-        mAdapter = new WonPopupAdapter(R.layout.won_gift_item, list);
+        mAdapter = new TreasureBoxAdapter();
         GridLayoutManager layoutManager = new GridLayoutManager(mContext,3);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(mAdapter);
+        mAdapter.setNewData(list);
+        int allPrice = 0;
+        for (OpenBoxBean.DataBean.AwardListBean bean:list){
+            int p = bean.getNum()*Integer.parseInt(bean.getPrice());
+            allPrice = p + allPrice;
+        }
+
+        price.setText(allPrice+"");
     }
 
     public void dismiss() {

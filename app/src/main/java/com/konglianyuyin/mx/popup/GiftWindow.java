@@ -107,6 +107,8 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
     TextView zengsong;
     @BindView(R.id.sendGiftAll)
     TextView sendGiftAll;
+    @BindView(R.id.allPrice)
+    TextView allPrice;
 
     private String mId = "";//礼物id
 
@@ -335,9 +337,13 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
             giftListBean.getData().setMy_wares(new ArrayList<>());
         }
         List<GiftListBeanNew.DataBean.MyWaresBean> gifts = giftListBean.getData().getMy_wares();
-//        for (GiftListBeanNew.DataBean.MyWaresBean gift : gifts) {
-//            gift.setChecked(false);
-//        }
+        int price = 0;
+        for (GiftListBeanNew.DataBean.MyWaresBean gift : gifts) {
+            int p = gift.getNum()*gift.getPrice_004();
+            price = p + price;
+        }
+        allPrice.setText("总计："+price);
+
         for (int i = 0; i < gifts.size(); i++) {
             gifts.get(i).setChecked(mPosition == i);
         }
@@ -1060,6 +1066,7 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
                     return;
                 }
                 mId = "";
+                allPrice.setVisibility(View.GONE);
                 resetLiwuSelect();
                 liwu.setSelected(true);
                 mCurrentGiftType = 0;
@@ -1069,6 +1076,7 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
                 liwushuliang.setText("x1");
                 break;
             case R.id.baoshi:
+                allPrice.setVisibility(View.GONE);
                 if (giftListBean == null || giftListBean.getData() == null || giftListBean.getData().getBaoshi() == null || giftListBean.getData().getBaoshi().size() == 0) {
                     ToastUtil.showToast(context, "暂无宝石");
                     return;
@@ -1088,6 +1096,7 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
             case R.id.beibao:
                 if (giftListBean == null || giftListBean.getData() == null || giftListBean.getData().getMy_wares() == null || giftListBean.getData().getMy_wares().size() == 0) {
                     ToastUtil.showToast(context, "我的背包空空如也~");
+                    allPrice.setVisibility(View.GONE);
                     return;
                 }
                 if (mCurrentGiftType == 2) {
@@ -1095,6 +1104,7 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
                 }
                 mPosition = -1;
                 mId = "";
+                allPrice.setVisibility(View.VISIBLE);
                 resetLiwuSelect();
                 zengsong.setEnabled(false);
                 beibao.setSelected(true);
