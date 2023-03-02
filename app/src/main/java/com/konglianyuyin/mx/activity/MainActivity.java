@@ -49,6 +49,7 @@ import com.konglianyuyin.mx.bean.UpdateApkBean;
 import com.konglianyuyin.mx.bean.UserBean;
 import com.konglianyuyin.mx.di.CommonModule;
 import com.konglianyuyin.mx.di.DaggerCommonComponent;
+import com.konglianyuyin.mx.ext.ExtConfig;
 import com.konglianyuyin.mx.floatingview.EnFloatingView;
 import com.konglianyuyin.mx.floatingview.FloatingMagnetView;
 import com.konglianyuyin.mx.floatingview.FloatingView;
@@ -222,9 +223,12 @@ MainHomeNewFragment mainHomeFragment = new MainHomeNewFragment();
                         }
                     });
 
-                    //自定义转赠消息
-                    RongIM.registerMessageType(RedPackageMessage.class);
-                    RongIM.registerMessageTemplate(new RedPackageMessageItemProvider());
+                    if (ExtConfig.isRegisterMsg){
+                        //自定义转赠消息
+                        RongIM.registerMessageType(RedPackageMessage.class);
+                        RongIM.registerMessageTemplate(new RedPackageMessageItemProvider());
+                    }
+
 
                     //        //连接成功以后设置用户消息
                     RongIM.setUserInfoProvider(new RongIM.UserInfoProvider() {

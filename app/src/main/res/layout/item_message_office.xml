@@ -30,7 +30,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_launcher_2" />
 
         <TextView
             android:id="@+id/tv_content"

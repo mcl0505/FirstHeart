@@ -27,6 +27,7 @@ import com.konglianyuyin.mx.R;
 import com.konglianyuyin.mx.activity.room.AdminHomeActivity;
 import com.konglianyuyin.mx.bean.MessageBean;
 import com.konglianyuyin.mx.bean.OpenBoxBean;
+import com.konglianyuyin.mx.ext.ExtConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -607,21 +608,33 @@ public class RoomMessageAdapter extends BaseQuickAdapter<MessageBean, BaseViewHo
 
         }
         else if (TextUtils.equals(item.getMessageType(), "13") || TextUtils.equals(item.getMessageType(), "6666")) {
+            //名字颜色
+            int defaultTextColor = Color.parseColor("#ffffff");
+            int nameColor = Color.parseColor("#ffde00");
+            int giftColor = Color.parseColor("#ffde00");
+            int defaultBg = R.drawable.bg_room_chatitem;
             //有人开宝箱
             TextView textView = helper.getView(R.id.tv_just_tip);
             textView.setText("");
-            textView.setTextColor(Color.parseColor("#ffffff"));
+
             String oneStr = TextUtils.equals(item.getMessageType(), "6666") ? "大吉大利【全服】恭喜 " : "哇偶~";
             String twoStr = item.getNickName();
             if (twoStr == null) return;
-            String totalStr = "在" + (item.box_class.equals("1") ? "普通蛋" : "高级蛋") + "开出了";
-            if (item.box_class.equals("1")){
-                LinearLayout ll4 = helper.getView(R.id.ll4);
-                ll4.setBackground(mContext.getResources().getDrawable(R.drawable.bg_room_chatitem));
-            }else {
-                LinearLayout ll4= helper.getView(R.id.ll4);
-                ll4.setBackground(mContext.getResources().getDrawable(R.drawable.bg_room_chatitem));
+            String totalStr = "在" + (item.box_class.equals("1") ? "黄金海岸" : item.box_class.equals("2")?"神秘海域":"深海遨游") + "开出了";
+            LinearLayout ll4= helper.getView(R.id.ll4);
+            if (item.box_class.equals("1")){//普通
+                defaultBg = ExtConfig.gift_bg_1;
+                defaultTextColor = Color.parseColor(ExtConfig.gift_default_text_color_1);
+            }else if (item.box_class.equals("2")){//中级
+                defaultBg = ExtConfig.gift_bg_2;
+                    defaultTextColor = Color.parseColor(ExtConfig.gift_default_text_color_2);
+            }else if (item.box_class.equals("3")){//高级
+                defaultBg = ExtConfig.gift_bg_3;
+               defaultTextColor = Color.parseColor(ExtConfig.gift_default_text_color_3);
             }
+            ll4.setBackground(mContext.getResources().getDrawable(defaultBg));
+            textView.setTextColor(defaultTextColor);
+
             textView.append(new SpannableString(oneStr));
 
             SpannableString clickStringOne = new SpannableString(twoStr);
@@ -637,7 +650,7 @@ public class RoomMessageAdapter extends BaseQuickAdapter<MessageBean, BaseViewHo
                 @Override
                 public void updateDrawState(TextPaint ds) {
                     super.updateDrawState(ds);
-                    ds.setColor(Color.parseColor("#ffde00"));//设置颜色
+                    ds.setColor(nameColor);//设置颜色
                     ds.setUnderlineText(false);//去掉下划线
                 }
             }, 0, clickStringOne.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -672,7 +685,7 @@ public class RoomMessageAdapter extends BaseQuickAdapter<MessageBean, BaseViewHo
                             @Override
                             public void updateDrawState(TextPaint ds) {
                                 super.updateDrawState(ds);
-                                ds.setColor(Color.parseColor("#ffde00"));//设置颜色
+                                ds.setColor(giftColor);//设置颜色
                                 ds.setUnderlineText(false);//去掉下划线
                             }
                         }, 0, clickString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -703,7 +716,7 @@ public class RoomMessageAdapter extends BaseQuickAdapter<MessageBean, BaseViewHo
                             @Override
                             public void updateDrawState(TextPaint ds) {
                                 super.updateDrawState(ds);
-                                ds.setColor(Color.parseColor("#ffde00"));//设置颜色
+                                ds.setColor(giftColor);//设置颜色
                                 ds.setUnderlineText(false);//去掉下划线
                             }
                         }, 0, clickString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

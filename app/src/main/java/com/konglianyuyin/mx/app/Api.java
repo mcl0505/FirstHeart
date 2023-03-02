@@ -66,7 +66,9 @@ public interface Api {
 
     //todo 融云key
 //    public static String RONG_YUN_KEY = "4z3hlwrv45hdt";//融云key
-    public static String RONG_YUN_KEY = "x18ywvqfxzn4c";//融云key
+//    public static String RONG_YUN_KEY = "x18ywvqfxzn4c";//融云key
+    public static String RONG_YUN_KEY = "x4vkb1qpx92wk";//融云key
+    public static String RONG_YUN_SECRET = "T8gmVw7QEsJ";//融云SECRET
     //todo 替换声网
 //    public static String AGORA_KEY = "92d289a6254f4f0399b5e3f5cb6103fc";//声网key
 //    public static String AGORA_KEY = "8de6502d02a84856ac3f460c2407be8e";//声网key

@@ -119,53 +119,75 @@ public class GiveOtherActivity extends MyBaseArmActivity {
 
             }
         });
-        tvSure.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (TextUtils.isEmpty(edtNum.getText().toString())) {
-                    showMessage("数量不能为空");
-                    return;
-                }
-//                if (commonModel.zengsong(getIntent().getStringExtra("id").equals()){
-//
-//                }
-// 构造 TextMessage 实例
-                if (ExtConfig.isTransfer){
-                    RedPackageMessage myTextMessage = RedPackageMessage.obtain( edtNum.getText().toString()+"金币");
-                    Message myMessage = Message.obtain(getIntent().getStringExtra("id"), Conversation.ConversationType.PRIVATE, myTextMessage);
+        tvSure.setOnClickListener(view -> {
+            if (TextUtils.isEmpty(edtNum.getText().toString())) {
+                showMessage("数量不能为空");
+                return;
+            }
 
-                    RongIM.getInstance().sendMessage(myMessage, null, null, new IRongCallback.ISendMessageCallback() {
+            RxUtils.loading(commonModel.zengsong(getIntent().getStringExtra("id"), edtNum.getText().toString(),String.valueOf(UserManager.getUser().getToken())))
+                    .subscribe(new ErrorHandleSubscriber<ZengSongBean>(mErrorHandler) {
                         @Override
-                        public void onAttached(Message message) {
-                            com.jess.arms.utils.LogUtils.debugInfo("消息本地数据库存储成功的回调");
-                            com.jess.arms.utils.LogUtils.debugInfo( JSON.toJSONString(message));
-                        }
+                        public void onNext(ZengSongBean zengSongBean) {
+                            if (ExtConfig.isTransfer){
 
-                        @Override
-                        public void onSuccess(Message message) {
-                            com.jess.arms.utils.LogUtils.debugInfo("消息通过网络发送成功的回调");
-                            com.jess.arms.utils.LogUtils.debugInfo(JSON.toJSONString(message));
-                            showMessage("消息发送成功");
-                        }
+                                if (ExtConfig.isRegisterMsg){
+                                    // 构造 RedPackageMessage 实例
+                                    RedPackageMessage myTextMessage = RedPackageMessage.obtain( edtNum.getText().toString()+"金币");
+                                    Message myMessage = Message.obtain(getIntent().getStringExtra("id"), Conversation.ConversationType.PRIVATE, myTextMessage);
+                                    RongIM.getInstance().sendMessage(myMessage, null, null, new IRongCallback.ISendMessageCallback() {
+                                        @Override
+                                        public void onAttached(Message message) {
+                                            LogUtils.debugInfo("消息本地数据库存储成功的回调");
+                                            LogUtils.debugInfo( JSON.toJSONString(message));
+                                        }
 
-                        @Override
-                        public void onError(Message message, RongIMClient.ErrorCode errorCode) {
-                            com.jess.arms.utils.LogUtils.debugInfo("消息发送失败的回调");
-                            LogUtils.debugInfo(JSON.toJSONString(message));
-                            showMessage(message.getExtra());
+                                        @Override
+                                        public void onSuccess(Message message) {
+                                            LogUtils.debugInfo("消息通过网络发送成功的回调");
+                                            LogUtils.debugInfo(JSON.toJSONString(message));
+                                            showMessage("消息发送成功");
+                                        }
+
+                                        @Override
+                                        public void onError(Message message, RongIMClient.ErrorCode errorCode) {
+                                            LogUtils.debugInfo("消息发送失败的回调");
+                                            LogUtils.debugInfo(JSON.toJSONString(message));
+                                            showMessage(message.getExtra());
+                                        }
+                                    });
+                                }else {
+                                    // 构造 TextMessage 实例
+                                    TextMessage myTextMessage = TextMessage.obtain( edtNum.getText().toString()+"金币\n金币转赠");
+                                    Message myMessage = Message.obtain(getIntent().getStringExtra("id"), Conversation.ConversationType.PRIVATE, myTextMessage);
+                                    RongIM.getInstance().sendMessage(myMessage, null, null, new IRongCallback.ISendMessageCallback() {
+                                        @Override
+                                        public void onAttached(Message message) {
+                                            LogUtils.debugInfo("消息本地数据库存储成功的回调");
+                                            LogUtils.debugInfo( JSON.toJSONString(message));
+                                        }
+
+                                        @Override
+                                        public void onSuccess(Message message) {
+                                            LogUtils.debugInfo("消息通过网络发送成功的回调");
+                                            LogUtils.debugInfo(JSON.toJSONString(message));
+                                            showMessage("消息发送成功");
+                                        }
+
+                                        @Override
+                                        public void onError(Message message, RongIMClient.ErrorCode errorCode) {
+                                            LogUtils.debugInfo("消息发送失败的回调");
+                                            LogUtils.debugInfo(JSON.toJSONString(message));
+                                            showMessage(message.getExtra());
+                                        }
+                                    });
+                                }
+
+                            }
+                            showMessage("转赠成功");
+                            finish();
                         }
                     });
-                }
-
-                RxUtils.loading(commonModel.zengsong(getIntent().getStringExtra("id"), edtNum.getText().toString(),String.valueOf(UserManager.getUser().getToken())))
-                        .subscribe(new ErrorHandleSubscriber<ZengSongBean>(mErrorHandler) {
-                            @Override
-                            public void onNext(ZengSongBean zengSongBean) {
-                                showMessage("转赠成功");
-                                finish();
-                            }
-                        });
-            }
         });
     }
 

@@ -60,7 +60,7 @@ public class RoomPlayService extends Service {
 
                 .setTicker("正在播放")
 
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.mipmap.ic_launcher_2)
 
                 .setContentIntent(pendingIntent)
 
