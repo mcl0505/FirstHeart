@@ -756,7 +756,7 @@ public class AdminHomeActivity extends MyBaseArmActivity {
             loadImage(imgBg, enterRoom.getRoom_info().get(0).back_img, R.mipmap.room_bg);
             // 房间标题栏
             textName.setText(enterRoom.getRoom_info().get(0).getRoom_name());
-            textId.setText("ID:" + enterRoom.getRoom_info().get(0).getUid());
+            textId.setText("ID:" + enterRoom.getRoom_info().get(0).getNumid());
             // bright_num影响ID的展示
             /*if (!TextUtils.isEmpty(enterRoom.getRoom_info().get(0).getBright_num())) {
                 textId.setText("ID:" + enterRoom.getRoom_info().get(0).getBright_num());
@@ -2741,6 +2741,7 @@ public class AdminHomeActivity extends MyBaseArmActivity {
                 .subscribe(new ErrorHandleSubscriber<EnterRoom>(mErrorHandler) {
                     @Override
                     public void onNext(EnterRoom menterRoom) {
+                        textId.setText("ID:" + menterRoom.getRoom_info().get(0).getNumid());
                         enterRoom = menterRoom;
                         // 刷新魅力值
                         meili11.setText(String.valueOf(enterRoom.getRoom_info().get(0).getMeili()));
@@ -5130,7 +5131,7 @@ public class AdminHomeActivity extends MyBaseArmActivity {
                             enterRoom = menterRoom;
                             meili11.setText(String.valueOf(enterRoom.getRoom_info().get(0).getMeili()));
                             textName.setText(enterRoom.getRoom_info().get(0).getRoom_name());
-                            textId.setText("ID:" + enterRoom.getRoom_info().get(0).getUid());
+                            textId.setText("ID:" + enterRoom.getRoom_info().get(0).getNumid());
                             /*if (!TextUtils.isEmpty(enterRoom.getRoom_info().get(0).getBright_num())) {
                                 textId.setText("ID:" + enterRoom.getRoom_info().get(0).getBright_num());
                                 textId.setTextColor(getResources().getColor(R.color.colorAccent));
@@ -5889,7 +5890,7 @@ public class AdminHomeActivity extends MyBaseArmActivity {
                         enterRoom = menterRoom;
                         meili11.setText(String.valueOf(enterRoom.getRoom_info().get(0).getMeili()));
                         textName.setText(enterRoom.getRoom_info().get(0).getRoom_name());
-                        textId.setText("ID:" + enterRoom.getRoom_info().get(0).getUid());
+                        textId.setText("ID:" + enterRoom.getRoom_info().get(0).getNumid());
                         /*if (!TextUtils.isEmpty(enterRoom.getRoom_info().get(0).getBright_num())) {
                             textId.setText("ID:" + enterRoom.getRoom_info().get(0).getBright_num());
                             textId.setTextColor(getResources().getColor(R.color.colorAccent));
