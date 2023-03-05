@@ -87,6 +87,7 @@ import com.konglianyuyin.mx.bean.Search;
 import com.konglianyuyin.mx.bean.SearchAdmin;
 import com.konglianyuyin.mx.bean.SearchHis;
 import com.konglianyuyin.mx.bean.SearchLabelBean;
+import com.konglianyuyin.mx.bean.SendAllGemResult;
 import com.konglianyuyin.mx.bean.SendGemResult;
 import com.konglianyuyin.mx.bean.ShareBean;
 import com.konglianyuyin.mx.bean.StartLoftBean;
@@ -518,6 +519,26 @@ public class CommonModel extends com.jess.arms.mvp.BaseModel {
                                                 @Field("num") String num) {
         return mRepositoryManager.obtainRetrofitService(CommonService.class)
                 .gift_queue(id, uid, user_id, fromUid, type,num, UserManager.getUser().getToken());
+    }
+
+    /**
+     *
+     * @param id  礼物id
+     * @param uid 房主id
+     * @param user_id  接收者id
+     * @param fromUid  发送者id
+     * @param type  类型
+     * @param num  数量
+     * @return
+     */
+    public Observable<SendGemResult> gift_queue_all(@Field("id") String id,
+                                                       @Field("uid") String uid,
+                                                       @Field("user_id") String user_id,
+                                                       @Field("fromUid") String fromUid,
+                                                       @Field("type") String type,
+                                                       @Field("num") String num) {
+        return mRepositoryManager.obtainRetrofitService(CommonService.class)
+                .gift_queue_all(id, uid, user_id, fromUid, type,num, UserManager.getUser().getToken());
     }
 
     public Observable<WaitList> addWaid(String uid,

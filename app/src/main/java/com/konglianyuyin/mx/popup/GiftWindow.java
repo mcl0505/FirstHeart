@@ -602,7 +602,7 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
                     finalNumbers,
                     allPrice));
             finalPrice = finalPrice + allPrice;
-            RxUtils.loading(commonModel.gift_queue(
+            RxUtils.loading(commonModel.gift_queue_all(
                     mId, microphoneBean.getUser_id(),
                     String.valueOf(UserManager.getUser().getUserId()),
                     substring, type, finalNumbers
@@ -1067,6 +1067,7 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
                 }
                 mId = "";
                 allPrice.setVisibility(View.GONE);
+                sendGiftAll.setVisibility(View.GONE);
                 resetLiwuSelect();
                 liwu.setSelected(true);
                 mCurrentGiftType = 0;
@@ -1077,6 +1078,7 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
                 break;
             case R.id.baoshi:
                 allPrice.setVisibility(View.GONE);
+                sendGiftAll.setVisibility(View.GONE);
                 if (giftListBean == null || giftListBean.getData() == null || giftListBean.getData().getBaoshi() == null || giftListBean.getData().getBaoshi().size() == 0) {
                     ToastUtil.showToast(context, "暂无宝石");
                     return;
@@ -1097,6 +1099,7 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
                 if (giftListBean == null || giftListBean.getData() == null || giftListBean.getData().getMy_wares() == null || giftListBean.getData().getMy_wares().size() == 0) {
                     ToastUtil.showToast(context, "我的背包空空如也~");
                     allPrice.setVisibility(View.GONE);
+                    sendGiftAll.setVisibility(View.GONE);
                     return;
                 }
                 if (mCurrentGiftType == 2) {
@@ -1105,6 +1108,7 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
                 mPosition = -1;
                 mId = "";
                 allPrice.setVisibility(View.VISIBLE);
+                sendGiftAll.setVisibility(View.VISIBLE);
                 resetLiwuSelect();
                 zengsong.setEnabled(false);
                 beibao.setSelected(true);

@@ -132,7 +132,7 @@
             android:text="全部赠送"
             android:textSize="10sp"
             android:gravity="center"
-            android:visibility="visible"
+            android:visibility="gone"
             android:paddingHorizontal="10dp"
             android:layout_marginRight="10dp"
             android:textColor="@color/white"

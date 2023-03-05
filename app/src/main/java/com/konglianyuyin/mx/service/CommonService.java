@@ -69,6 +69,7 @@ import com.konglianyuyin.mx.bean.Search;
 import com.konglianyuyin.mx.bean.SearchAdmin;
 import com.konglianyuyin.mx.bean.SearchHis;
 import com.konglianyuyin.mx.bean.SearchLabelBean;
+import com.konglianyuyin.mx.bean.SendAllGemResult;
 import com.konglianyuyin.mx.bean.SendGemResult;
 import com.konglianyuyin.mx.bean.ShareBean;
 import com.konglianyuyin.mx.bean.StartLoftBean;
@@ -707,6 +708,22 @@ public interface CommonService {
     @POST(APP_DOMAIN + "gift_queue")
     @FormUrlEncoded
     Observable<SendGemResult> gift_queue(
+            @Field("id") String id,
+            @Field("uid") String uid,
+            @Field("user_id") String user_id,
+            @Field("fromUid") String fromUid,
+            @Field("type") String type,
+            @Field("num") String num,
+            @Field("token") String token
+
+    );
+
+    /**
+     * 发送礼物
+     */
+    @POST(APP_DOMAIN + "gift_queue")
+    @FormUrlEncoded
+    Observable<SendGemResult> gift_queue_all(
             @Field("id") String id,
             @Field("uid") String uid,
             @Field("user_id") String user_id,
