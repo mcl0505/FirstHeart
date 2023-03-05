@@ -584,6 +584,8 @@ public class AdminHomeActivity extends MyBaseArmActivity {
     private DengJiBean dengJiBean;
     private int userLevel = 0;
 
+    AdminUser mAdminUser;
+
     private static final int SDK_PAY_FLAG = 101;
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
@@ -1358,6 +1360,7 @@ public class AdminHomeActivity extends MyBaseArmActivity {
                 .subscribe(new ErrorHandleSubscriber<AdminUser>(mErrorHandler) {
                     @Override
                     public void onNext(AdminUser adminUser) {
+                        mAdminUser = adminUser;
                         onlinePepole.setText(adminUser.getData().getVisitor().size() + "人");
                     }
                 });
@@ -1387,10 +1390,13 @@ public class AdminHomeActivity extends MyBaseArmActivity {
                             setEditOtherDataDialog(selectId);
                         }
                     } else {
+
                         setEditOtherDataDialog(roomMessageAdapter.getData().get(position).getUser_id());
                     }
                 } else {
                     // 点击到了别人的名字
+
+
                     setOtherDataDialog(roomMessageAdapter.getData().get(position).getUser_id());
                 }
             }
@@ -2179,6 +2185,7 @@ public class AdminHomeActivity extends MyBaseArmActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            loadData();
                             LogUtils.debugInfo("====成员加入消息");
                             LogUtil.d(own + "成员加入消息");
                         }
@@ -2190,6 +2197,7 @@ public class AdminHomeActivity extends MyBaseArmActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            loadData();
                             String userId = rtmChannelMember.getUserId();
                             LogUtil.d(own + "成员离开消息");
                             //只要有成员离开了，就需要判断是否其他人刷新麦序列表
@@ -4223,6 +4231,12 @@ public class AdminHomeActivity extends MyBaseArmActivity {
                                 toast("取消关注成功");
                             }
                         });
+
+                        for (AdminUser.DataBean.VisitorBean  bean:mAdminUser.getData().getVisitor()){
+                            if (bean.getId() == Integer.parseInt(userId)){
+                                dialog2.findViewById(R.id.textDialogTichu).setVisibility(View.VISIBLE);
+                            }
+                        }
                     }
                 });
     }
@@ -4544,6 +4558,7 @@ public class AdminHomeActivity extends MyBaseArmActivity {
                         sendChannelMessage(BaseUtils.getJson("3", "", "", ""));
                         sendPeerMessage(user_id, nfgk184grdgdfggunaliyuantichu);
                         loadVedioList();
+                        loadData();
                     }
                 });
     }

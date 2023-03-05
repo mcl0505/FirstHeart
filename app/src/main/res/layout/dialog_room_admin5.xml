@@ -188,6 +188,7 @@
                 android:drawableTop="@mipmap/user_card_tichu"
                 android:gravity="center"
                 android:text="踢出房间"
+                android:visibility="gone"
                 android:textColor="@color/font_666666"
                 android:textSize="12sp" />
 

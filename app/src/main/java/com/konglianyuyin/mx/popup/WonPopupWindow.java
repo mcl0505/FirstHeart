@@ -76,7 +76,7 @@ public class WonPopupWindow extends PopupWindow {
 //        this.setHeight(view.getMeasuredHeight() - 100);
         context.getWindow().setAttributes(params);
         mAdapter = new TreasureBoxAdapter();
-        GridLayoutManager layoutManager = new GridLayoutManager(mContext,3);
+        GridLayoutManager layoutManager = new GridLayoutManager(mContext,4);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(mAdapter);
