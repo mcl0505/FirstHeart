@@ -666,6 +666,7 @@ public class AdminHomeActivity extends MyBaseArmActivity {
 
     @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
+
         DaggerCommonComponent.builder()
                 .appComponent(appComponent)
                 .commonModule(new CommonModule())
@@ -1935,8 +1936,12 @@ public class AdminHomeActivity extends MyBaseArmActivity {
      * @param svgaImageView
      */
     public void showServerSVG(SVGAParser parser, String giftUrl, SVGAImageView svgaImageView) {
-        boolean closeGif = (boolean) SharedPreferencesUtils.getParam(this, "SHOWGIF", false);
-        if (closeGif) return;
+        if (!ExtConfig.isSendAllGiftShow){
+            return;
+        }
+
+//        boolean closeGif = (boolean) SharedPreferencesUtils.getParam(this, "SHOWGIF", false);
+//        if (closeGif) return;
         try {
             parser.decodeFromURL(new URL(giftUrl), new SVGAParser.ParseCompletion() {
                 @Override
@@ -2122,6 +2127,8 @@ public class AdminHomeActivity extends MyBaseArmActivity {
                                     // 头像动画
                                     loadAniData(messageBean.userInfo, messageBean.show_img);
                                 }
+
+
                             } else if (TextUtils.equals(messageBean.getMessageType(), "11")) {
                                 // 11同意结为CP，在聊天区域提示XXX与XX结为守护CP；
                                 roomMessageAdapter.getData().add(messageBean);
@@ -3154,13 +3161,15 @@ public class AdminHomeActivity extends MyBaseArmActivity {
                 roomTopWindow.getLlTeXiao().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        boolean closeGif = (boolean) SharedPreferencesUtils.getParam(AdminHomeActivity.this, "SHOWGIF", false);
-                        if (closeGif) {
-                            SharedPreferencesUtils.setParam(AdminHomeActivity.this, "SHOWGIF", false);
-                        } else {
-                            SharedPreferencesUtils.setParam(AdminHomeActivity.this, "SHOWGIF", true);
-                        }
+//                        boolean closeGif = (boolean) SharedPreferencesUtils.getParam(AdminHomeActivity.this, "SHOWGIF", false);
+//                        if (closeGif) {
+//                            SharedPreferencesUtils.setParam(AdminHomeActivity.this, "SHOWGIF", false);
+//                        } else {
+//                            SharedPreferencesUtils.setParam(AdminHomeActivity.this, "SHOWGIF", true);
+//                        }
 
+
+                        ExtConfig.isSendAllGiftShow = !ExtConfig.isSendAllGiftShow;
                         roomTopWindow.dismiss();
                     }
                 });
@@ -5577,6 +5586,11 @@ public class AdminHomeActivity extends MyBaseArmActivity {
      * 发送礼物飞的动画
      */
     private void setFlyAnimate(MessageBean messageBean) {
+
+        if (!ExtConfig.isSendAllGiftShow){
+            return;
+        }
+
         int[] location = messageBean.location;
 //        if (mGiftFlyDialog == null) {
         mGiftFlyDialog = new GiftFlyDialog1(this, R.layout.pop_gift_fly, feiLeft, feiTop, location);
@@ -5638,6 +5652,11 @@ public class AdminHomeActivity extends MyBaseArmActivity {
      * 计算飞的距离
      */
     private void loadAniData(List<MessageBean.Data> userInfo, String imgUrl) {
+        if (!ExtConfig.isSendAllGiftShow){
+            return;
+        }
+
+
         for (MessageBean.Data list : userInfo) {
             if (TextUtils.equals(list.userId, uid)) {//厅主
                 imgRoom.post(() -> {

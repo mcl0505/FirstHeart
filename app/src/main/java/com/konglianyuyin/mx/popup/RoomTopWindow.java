@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.konglianyuyin.mx.R;
 import com.konglianyuyin.mx.base.MyBaseArmActivity;
+import com.konglianyuyin.mx.ext.ExtConfig;
 import com.konglianyuyin.mx.utils.SharedPreferencesUtils;
 
 
@@ -55,7 +56,7 @@ public class RoomTopWindow extends PopupWindow {
         llTeXiao = mMenuView.findViewById(R.id.llTeXiao);
         tv_texiao = mMenuView.findViewById(R.id.tv_texiao);
         boolean closeGif = (boolean) SharedPreferencesUtils.getParam(context, "SHOWGIF", false);
-        if (closeGif) {
+        if (!ExtConfig.isSendAllGiftShow) {
             tv_texiao.setText("开启特效");
         } else {
             tv_texiao.setText("屏蔽特效");

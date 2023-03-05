@@ -21,6 +21,8 @@ public class ExtConfig {
     public static boolean isCleanMeiLi = true;
     //是否添加全部赠送按钮
     public static boolean isSendAllGift = true;
+    //全部赠送  是否展示特效
+    public static boolean isSendAllGiftShow = false;
     //是否开启房间图片修改功能
     public static boolean isOpenRoomChangeImage = true;
     //开房间是否需要实名认证

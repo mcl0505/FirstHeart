@@ -139,6 +139,10 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
     private int mCurrentGiftType = 0;
     private String fromUserId;
 
+    private String mSelectGiftId = "";
+    private String mSelectBaoShiId = "";
+    private String mSelectBeiBaoId = "";
+
     public GiftWindow(AdminHomeActivity context,
                       List<Microphone.DataBean.MicrophoneBean> mMicrophone,
                       CommonModel commonModel, GiftListBeanNew giftListBean,
@@ -223,9 +227,6 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
         context.getWindow().setAttributes(params);
 
         EventBus.getDefault().register(this);
-
-
-        sendGiftAll.setVisibility(ExtConfig.isSendAllGift ? View.VISIBLE : View.GONE);
 
 //
 //        List<GiftListBeanNew.DataBean.MyWaresBean> myWaresBeanList = new ArrayList<>();
@@ -345,7 +346,7 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
         allPrice.setText("总计："+price);
 
         for (int i = 0; i < gifts.size(); i++) {
-            gifts.get(i).setChecked(mPosition == i);
+            gifts.get(i).setChecked(mId.equals(gifts.get(i).getId()));
         }
         radioGroup.removeAllViews();
         mPackageGiftAdapter = new BeibaoPagerAdapter(mContext, gifts);
@@ -364,6 +365,20 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
 
     private void ss() {
         mPosition = -1;
+        HttpUtil.getGiftList(String.valueOf(UserManager.getUser().getUserId()), new HttpCallback() {
+            @Override
+            public void onSuccess(int code, String msg, Object info) {
+                GiftListBeanNew.DataBean bean = JSON.parseObject(((com.alibaba.fastjson.JSONObject) info).toJSONString(), GiftListBeanNew.DataBean.class);
+                GiftListBeanNew giftListBean2 = new GiftListBeanNew();
+                giftListBean2.setData(bean);
+                giftListBean.getData().setMy_wares(giftListBean2.getData().getMy_wares());
+                showBeibaoList();
+            }
+        });
+    }
+
+    private void updateBeiBaoData(String beiBaoId) {
+        mId = beiBaoId;
         HttpUtil.getGiftList(String.valueOf(UserManager.getUser().getUserId()), new HttpCallback() {
             @Override
             public void onSuccess(int code, String msg, Object info) {
@@ -470,39 +485,40 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
                     messageBean.type = myWaresBean.getType() + "";
                     messageBean.giftNum = finalNumbers;
                     messageBean.giftPrice = myWaresBean.getPrice();
+
                     //if (myWaresBean.getType() != 2) {//我的背包里面的礼物数量要减少，没有全屏特效情况下
-                    if (true) {
-                        int number = myWaresBean.getNum();
-
-                        String[] sendUserIds = substring.split(",");//送给了几个人，人数*数量
-
-                        if (sendUserIds.length > 0) {
-
-                            int total = sendUserIds.length * Arith.strToInt(finalNumbers);
-
-                            number -= total;
-
-                            if (number <= 0) {
-                                giftListBean.getData().getMy_wares().remove(mPosition);
-                                mPosition = -1;
-                                if (giftListBean.getData().getMy_wares().size() == 0) {
-                                    dismiss();
-                                } else {
-                                    // TODO 待处理
-//                                    showBeibaoList();
-//                                    mPackageGiftAdapter.notifyDataSetChanged();
-                                }
-//                                dismiss();
-                            }
-                            myWaresBean.setNum(number);
-                            myWaresBean.setPrice("x" + number);
-                            // TODO 待处理
-                            showBeibaoList();
-//                            mPackageGiftAdapter.notifyDataSetChanged();
-
-                        }
-
-                    }
+//                    if (true) {
+//                        int number = myWaresBean.getNum();
+//
+//                        String[] sendUserIds = substring.split(",");//送给了几个人，人数*数量
+//
+//                        if (sendUserIds.length > 0) {
+//
+//                            int total = sendUserIds.length * Arith.strToInt(finalNumbers);
+//
+//                            number -= total;
+//
+//                            if (number <= 0) {
+//                                giftListBean.getData().getMy_wares().remove(mPosition);
+//                                mPosition = -1;
+//                                if (giftListBean.getData().getMy_wares().size() == 0) {
+//                                    dismiss();
+//                                } else {
+//                                    // TODO 待处理
+////                                    showBeibaoList();
+////                                    mPackageGiftAdapter.notifyDataSetChanged();
+//                                }
+////                                dismiss();
+//                            }
+//                            myWaresBean.setNum(number);
+//                            myWaresBean.setPrice("x" + number);
+//                            // TODO 待处理
+//                            showBeibaoList();
+////                            mPackageGiftAdapter.notifyDataSetChanged();
+//
+//                        }
+//
+//                    }
 //                    messageBean.e_name = giftListBean.getData().getMy_wares().get(mPosition).gete;
                     String allPrice = String.valueOf(Integer.parseInt(finalNumbers) * Integer.parseInt(giftListBean.getData().getMy_wares().get(mPosition).getPrice().replace("x", "").trim()));
 //                    LogUtils.debugInfo(JSON.toJSONString(myWaresBean));
@@ -540,6 +556,7 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
                         }
 
                     }
+                    updateBeiBaoData(myWaresBean.getId());
                 }
                 messageBean.setMessageType("4");
 
@@ -561,11 +578,11 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
                 messageBean.userInfo = dataList;
                 EventBus.getDefault().post(new FirstEvent(messageBean, Constant.FASONGMAIXULIWU));
                 LogUtils.debugInfo("发送广播了============-=-=-=-=-=-=-=-=-=-=-=-=");
-                if (isMyPackage && liwushuliang.getText().toString().equals("全部")) {
-                    zengsong.setEnabled(false);
-                    ss();
-                }
-
+//                if (isMyPackage && liwushuliang.getText().toString().equals("全部")) {
+//                    zengsong.setEnabled(false);
+//
+//                }
+//                ss();
 
             }
 
@@ -654,8 +671,9 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
                         myWaresBean.setNum(0);
                         myWaresBean.setPrice("x" + 0);
                         My_wares.clear();
-
-                        showBeibaoList();
+//                        mSelectBeiBaoId = "";
+//                        showBeibaoList();
+                        updateBeiBaoData("");
                         sendGiftAll.setVisibility(View.GONE);
                         return;
 
@@ -987,7 +1005,7 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
                                     ToastUtil.showToast(context, "当前背包礼物数量不够！");
 
                                     mPosition = -1;
-                                    showBeibaoList();
+                                    updateBeiBaoData("");
                                     return;
                                 }
                             } catch (NumberFormatException e) {
@@ -995,13 +1013,15 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
                                 ToastUtil.showToast(context, "当前背包礼物数量不够！");
 
                                 mPosition = -1;
-                                showBeibaoList();
+//                                showBeibaoList();
+                                updateBeiBaoData("");
                                 return;
                             }
                             sendGift(substring, listNew, true, "pack");
                             if (giftsBean1.getType() == 2) {//有全屏特效
 //                                mPosition = -1;
-                                showBeibaoList();
+//                                showBeibaoList();
+                                updateBeiBaoData("");
                             }
                         } else if (type == 3) {
                             sendByk(substring, listNew);
@@ -1108,12 +1128,15 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
                 mPosition = -1;
                 mId = "";
                 allPrice.setVisibility(View.VISIBLE);
-                sendGiftAll.setVisibility(View.VISIBLE);
+                if (ExtConfig.isSendAllGift ){
+                    sendGiftAll.setVisibility(View.VISIBLE);
+                }
+
                 resetLiwuSelect();
                 zengsong.setEnabled(false);
                 beibao.setSelected(true);
                 mCurrentGiftType = 2;
-                showBeibaoList();
+                updateBeiBaoData("");
                 giftNumberWindow.resetData(true);
                 break;
             case R.id.sendGiftAll:
@@ -1184,8 +1207,9 @@ public class GiftWindow extends PopupWindow implements GiftPagerAdapter.ActionLi
     @Override
     public void onItemChecked(GiftListBeanNew.DataBean.MyWaresBean bean, int position) {
         mPosition = position;
-        showBeibaoList();
         mId = bean.getId();
+        showBeibaoList();
+
         zengsong.setEnabled(true);
     }
 }
