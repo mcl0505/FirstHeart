@@ -26,7 +26,7 @@ public class ExtConfig {
     //是否开启房间图片修改功能
     public static boolean isOpenRoomChangeImage = true;
     //开房间是否需要实名认证
-    public static boolean isOpenRoomNeedRealName = true;
+    public static boolean isOpenRoomNeedRealName = false;
     //贡献值需要大于等于这个数据才能显示
     public static int showEggMoney = 50;
     //宝箱显示的图片

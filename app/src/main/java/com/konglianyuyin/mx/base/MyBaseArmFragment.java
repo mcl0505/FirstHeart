@@ -229,6 +229,95 @@ public abstract class MyBaseArmFragment extends LazyBaseFragments implements IVi
                                                 }
                                             });
                                 }
+                            }else {
+                                RxUtils.loading(commonModel.enter_room(uid, room_pass,
+                                                String.valueOf(UserManager.getUser().getUserId())), MyBaseArmFragment.this)
+                                        .subscribe(new ErrorHandleSubscriber<EnterRoom>(mErrorHandler) {
+                                            @Override
+                                            public void onNext(EnterRoom enterRoom) {
+                                                if (AdminHomeActivity.isStart && !uid.equals(AdminHomeActivity.mContext.getUid())) {
+                                                    AdminHomeActivity.isStart = false;
+                                                    AdminHomeActivity.mContext.finish();//先销毁
+                                                }
+                                                Intent intent = new Intent(getActivity(), AdminHomeActivity.class);
+                                                Bundle bundle = new Bundle();
+                                                bundle.putSerializable("enterRoom", enterRoom);
+                                                bundle.putString("uid", uid);
+                                                bundle.putInt("flag", flag);
+                                                intent.putExtras(bundle);
+                                                getActivity().startActivity(intent);
+                                                getActivity().overridePendingTransition(R.anim.slide_right_in, R.anim.slide_left_out);
+                                            }
+
+                                            @Override
+                                            public void onError(Throwable t) {
+                                                super.onError(t);
+                                                if (t instanceof ApiIOException) {
+                                                    ApiIOException apiIOException = (ApiIOException) t;
+                                                    String code = apiIOException.code;
+                                                    if (code.equals("4")) {
+                                                        //弹窗
+//                                new MaterialDialog.Builder(getActivity())
+//                                        .title("请输入密码")
+//                                        //限制输入的长度
+//                                        .inputRangeRes(2, 10, R.color.colorPrimary)
+//                                        //限制输入类型
+//                                        .inputType(InputType.TYPE_CLASS_PHONE)
+//                                        .input("输入密码", null, new MaterialDialog.InputCallback() {
+//                                            @Override
+//                                            public void onInput(MaterialDialog dialog, CharSequence input) {
+//                                                if (!TextUtils.isEmpty(input.toString())) {
+//                                                    enterData(uid, input.toString(), commonModel, flag);
+//                                                } else {
+//                                                    showToast("请输入密码");
+//                                                }
+//                                            }
+//                                        })
+//                                        .positiveText("确定")
+//                                        .show();
+                                                        PwdWindow pwdWindow = new PwdWindow(getActivity());
+                                                        pwdWindow.show();
+                                                        if (!TextUtils.isEmpty(headUrl) && !"0".equals(headUrl)) {
+                                                            loadImage(pwdWindow.getHeadImage(), headUrl, R.mipmap.gender_zhuce_girl);
+                                                        }
+                                                        pwdWindow.getPwdText().setOnTextChangeListener(pwd -> {
+                                                            if (pwd.length()==pwdWindow.getPwdText().getTextLength()){
+                                                                RxUtils.loading(commonModel.enter_room(uid, pwd, String.valueOf(UserManager.getUser().getUserId())), MyBaseArmFragment.this)
+                                                                        .subscribe(new ErrorHandleSubscriber<EnterRoom>(mErrorHandler) {
+                                                                            @Override
+                                                                            public void onNext(EnterRoom enterRoom) {
+                                                                                if (AdminHomeActivity.isStart && !uid.equals(AdminHomeActivity.mContext.getUid())) {
+                                                                                    AdminHomeActivity.isStart = false;
+                                                                                    AdminHomeActivity.mContext.finish();//先销毁
+                                                                                }
+                                                                                Intent intent = new Intent(getActivity(), AdminHomeActivity.class);
+                                                                                Bundle bundle = new Bundle();
+                                                                                bundle.putSerializable("enterRoom", enterRoom);
+                                                                                bundle.putString("uid", uid);
+                                                                                bundle.putInt("flag", flag);
+                                                                                intent.putExtras(bundle);
+                                                                                startActivity(intent);
+                                                                                getActivity().overridePendingTransition(R.anim.slide_right_in, R.anim.slide_left_out);
+                                                                                pwdWindow.dismiss();
+                                                                            }
+
+                                                                            @Override
+                                                                            public void onError(Throwable t) {
+                                                                                ApiIOException apiIOException = (ApiIOException) t;
+                                                                                String code = apiIOException.code;
+                                                                                if ("4".equals(code)) {
+                                                                                    pwdWindow.getErrorTit().setVisibility(View.VISIBLE);
+                                                                                    pwdWindow.getPwdText().clearText();
+                                                                                }
+                                                                            }
+                                                                        });
+                                                            }
+                                                        });
+
+                                                    }
+                                                }
+                                            }
+                                        });
                             }
                         }
                     });

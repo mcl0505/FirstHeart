@@ -231,9 +231,9 @@ public class RecomFragment extends HeaderViewPagerFragment {
                     .subscribe(new ErrorHandleSubscriber<UserBean>(mErrorHandler) {
                         @Override
                         public void onNext(UserBean userBean) {
-                            if (ExtConfig.isOpenRoomNeedRealName){
-
-                            }
+//                            if (ExtConfig.isOpenRoomNeedRealName){
+//
+//                            }
                         }
                     });
 
